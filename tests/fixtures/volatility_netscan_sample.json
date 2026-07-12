@@ -1,0 +1,1 @@
+[{"PID": 4120, "Owner": "powershell.exe", "Proto": "TCPv4", "LocalAddr": "192.168.1.10", "LocalPort": 49712, "ForeignAddr": "45.90.10.20", "ForeignPort": 443, "State": "ESTABLISHED"}]

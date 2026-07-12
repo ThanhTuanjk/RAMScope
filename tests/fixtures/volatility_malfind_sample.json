@@ -1,0 +1,1 @@
+[{"PID": 4120, "Process": "powershell.exe", "Start": "0x1000", "End": "0x2000", "Protection": "PAGE_EXECUTE_READWRITE", "Tag": "VadS", "Hexdump": "4d 5a 90 00"}]

@@ -4,14 +4,92 @@ volatility:
   quiet: true
   timeout_seconds: 600
 
-# These are stable RAMScope logical names. At ru…95021 tokens truncated…xpected = hashlib.sha256(raw.read_bytes()).hexdigest()
-    dump = tmp_path / "pid.4.dmp"
-    dump.write_bytes(b"dump")
-    dump_hash = hashlib.sha256(dump.read_bytes()).hexdigest()
-    status = PluginStatus("windows.pslist", "success", stdout_sha256=expected, dump_hashes={str(dump): dump_hash})
-    assert _cache_output_valid(status, raw)
-    dump.write_bytes(b"tampered dump")
-    assert not _cache_output_valid(status, raw)
-    dump.write_bytes(b"dump")
-    raw.write_text("tampered", encoding="utf-8")
-    assert not _cache_output_valid(status, raw)
+# These are stable RAMScope logical names. At runtime RAMScope resolves them to
+# the canonical plugin names provided by the installed Volatility3 version.
+plugins:
+  windows.info: true
+  windows.pslist: true
+  windows.pstree: true
+  windows.cmdline: true
+  windows.dlllist: true
+  windows.netscan: true
+  windows.malfind: true
+  windows.psscan: false
+  windows.psxview: false
+  windows.handles: false
+  windows.threads: false
+  windows.ldrmodules: false
+  windows.vadinfo: false
+  windows.privs: false
+  windows.envars: false
+  windows.getsids: false
+  windows.registry.hivelist: false
+  windows.registry.printkey_run: false
+  windows.registry.printkey_runonce: false
+  windows.registry.printkey_wow64_run: false
+  windows.registry.printkey_wow64_runonce: false
+  windows.registry.scheduled_tasks: false
+  windows.svcscan: false
+  windows.hollowprocesses: false
+  windows.processghosting: false
+  windows.pebmasquerade: false
+  windows.suspicious_threads: false
+  windows.suspended_threads: false
+  windows.filescan: false
+  windows.mutantscan: false
+  windows.modules: false
+  windows.modscan: false
+  windows.driverscan: false
+  windows.drivermodule: false
+  windows.driverirp: false
+  windows.callbacks: false
+  windows.ssdt: false
+  windows.timers: false
+  windows.devicetree: false
+  windows.symlinkscan: false
+  windows.unloadedmodules: false
+  windows.svcdiff: false
+  windows.etwpatch: false
+  windows.unhooked_system_calls: false
+  windows.skeleton_key_check: false
+  windows.vadyarascan: false
+  windows.iat: false
+  timeliner: false
+  windows.dumpfiles: false
+  windows.memmap: false
+
+plugin_args:
+  windows.registry.printkey_run:
+    - "--key"
+    - "Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+  windows.registry.printkey_runonce: ["--key", "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce"]
+  windows.registry.printkey_wow64_run: ["--key", "Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run"]
+  windows.registry.printkey_wow64_runonce: ["--key", "Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\RunOnce"]
+  windows.vadyarascan: []
+
+plugin_dump_args:
+  windows.malfind: ["--dump"]
+  windows.dlllist: ["--dump"]
+  windows.memmap: ["--dump"]
+  windows.dumpfiles: []
+
+analysis:
+  enable_yara: true
+  enable_ioc_extraction: true
+  enable_risk_scoring: true
+  enable_html_report: true
+  enable_pdf_report: false
+  enable_full_artifact_dumps: false
+  yara_timeout_seconds: 60
+  baseline:
+    trusted_system_roots:
+      - "c:\\windows\\system32\\"
+      - "c:\\windows\\syswow64\\"
+      - "c:\\program files\\"
+      - "c:\\program files (x86)\\"
+    user_writable_tokens: ["\\appdata\\", "\\temp\\", "\\users\\public\\", "\\downloads\\"]
+    benign_domain_suffixes: ["microsoft.com", "windows.com", "windowsupdate.com", "office.com"]
+    network_heavy_processes: ["chrome.exe", "msedge.exe", "firefox.exe", "teams.exe", "onedrive.exe"]
+
+# Weights and category caps can override the defaults in ramscope.config.
+risk_total_score_cap: 100

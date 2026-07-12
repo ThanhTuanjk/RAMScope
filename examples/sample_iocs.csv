@@ -1,0 +1,2 @@
+type,value,source,process_name,pid,confidence,note
+ip,45.90.10.20,network,powershell.exe,4120,medium,Outbound TCP connection

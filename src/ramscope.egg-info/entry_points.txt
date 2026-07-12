@@ -1,0 +1,2 @@
+[console_scripts]
+ramscope = ramscope.cli:app

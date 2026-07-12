@@ -1,0 +1,6 @@
+IPV4_PATTERN = r"\b(?:\d{1,3}\.){3}\d{1,3}\b"
+URL_PATTERN = r"\bhttps?://[^\s\"'>)]+"
+DOMAIN_PATTERN = r"\b(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\b"
+EMAIL_PATTERN = r"\b[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+\b"
+REGISTRY_PATTERN = r"\bHK(?:CU|LM|CR|U|CC)\\[^\s\"']+"
+WINDOWS_PATH_PATTERN = r"\b[A-Za-z]:\\[^\s\"']+"
