@@ -745,4 +745,3 @@ def _normalize_and_analyze(
     """Compatibility wrapper for integrations that previously invoked normalization directly."""
     del dump_files
     return analyze_case(case_dir, statuses, load_config(), external_tools=external_tools or {})
-
