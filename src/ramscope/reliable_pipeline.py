@@ -390,7 +390,68 @@ def _generic_findings(parsed: dict[str, list[Any]], baseline: dict[str, Any]) ->
         command = " ".join(text(row.get(key)) for key in ("action", "arguments", "working_directory"))
         suspicious = any(token in canonical_windows_path(command) for token in writable) or bool(re.search(r"\b(?:powershell|pwsh|cmd|mshta|wscript|cscript|rundll32|regsvr32)(?:\.exe)?\b", command, re.IGNORECASE))
         if suspicious:
-           …1218 tokens truncated…         if flags and all(flag is False for flag in flags) and (path or row.get("base")):
+            findings.append(_global_finding("Scheduled task action uses a LOLBin or user-writable path", "Medium", 20, "persistence", "persistence", command, f"scheduled-task:{index}"))
+    for index, row in enumerate(parsed.get("mutantscan", [])):
+        detail = text(row.get("details"))
+        if MUTEX_TOKEN.search(detail):
+            findings.append(_global_finding("Known-tool mutex token requires validation", "Low", 10, "signature", "signature", detail, f"mutex:{index}"))
+    for name in ("etwpatch", "unhooked_system_calls", "skeleton_key_check", "svcdiff"):
+        rows = parsed.get(name, [])
+        positive = [row for row in rows if not _is_negative_signal(text(row.get("details")))]
+        if positive:
+            findings.append(_global_finding(f"{parsers_label(name)} returned candidate artifacts", "Medium", 20, "evasion", "execution", f"{len(positive)} candidate row(s)", f"{name}:rows"))
+    if parsed.get("vadyarascan"):
+        findings.append(_global_finding("VAD YARA matches require process-level corroboration", "Low", 15, "signature", "signature", f"{len(parsed['vadyarascan'])} row(s)", "vadyarascan:rows"))
+    return _dedupe_findings(findings)
+
+
+def parsers_label(name: str) -> str:
+    return name.replace("_", ".")
+
+
+def _derive_findings(profiles: list[ProcessProfile], baseline: dict[str, Any]) -> tuple[list[Finding], list[dict[str, Any]]]:
+    findings: list[Finding] = []
+    observed: list[dict[str, Any]] = []
+    writable = _user_writable_tokens(baseline)
+    for profile in profiles:
+        name = profile.name.casefold()
+        if name in SYSTEM_NAMES and profile.image_path and is_absolute_windows_path(profile.image_path) and not is_system_path(profile.image_path):
+            findings.append(_finding(profile, "System-like process has a verified non-system path", "Medium", 25, "process", "process", "lead", profile.image_path, f"process-path:{canonical_windows_path(profile.image_path)}"))
+        elif name in SYSTEM_NAMES and profile.image_path:
+            observed.append({"type": "system_path", "pid": profile.pid, "value": profile.image_path, "reason": "Path was unavailable, non-absolute, or a normal system path."})
+
+        if profile.parent_name.casefold() in OFFICE and name in LOLBINS:
+            findings.append(_finding(profile, "Office process spawned a script-capable child", "Medium", 25, "process", "execution", "lead", f"parent={profile.parent_name}; command={profile.command_line}", f"ancestry:{profile.parent_process_key}->{profile.process_key}"))
+        if name in {"powershell.exe", "pwsh.exe"} and _suspicious_powershell(profile.command_line):
+            findings.append(_finding(profile, "PowerShell command line contains encoded or dynamic execution indicators", "Medium", 25, "process", "execution", "lead", profile.command_line[:1000], f"cmdline:{profile.process_key}"))
+
+        for dll in profile.dlls:
+            path = text(dll.get("path"))
+            if path and any(token in canonical_windows_path(path) for token in writable):
+                findings.append(_finding(profile, "Module observed in a user-writable location", "Low", 10, "module", "module", "lead", path, f"module:{canonical_windows_path(path)}"))
+
+        for region in profile.malfind_regions:
+            protection = text(region.protection).casefold()
+            if region.has_pe_header or "execute_readwrite" in protection:
+                provenance = _vad_provenance(profile, region.vad_start, region.vad_end)
+                findings.append(_finding(profile, "Malfind reported an executable memory indicator", "Medium", 35, "memory", "memory", "lead", f"{region.vad_start}-{region.vad_end} {region.protection}", provenance))
+
+        for row in profile.artifact_context.get("vadinfo", []):
+            protection = text(row.get("protection")).casefold()
+            backing = optional(row.get("file_output"))
+            private = boolish(row.get("private_memory"))
+            rwx = "execute_readwrite" in protection
+            if rwx and private is True and backing is None:
+                severity = "Low" if is_security_or_jit_process(profile.name) else "Medium"
+                provenance = _vad_provenance(profile, text(row.get("vad_start")), text(row.get("vad_end")))
+                findings.append(_finding(profile, "Private RWX VAD without recovered backing file", severity, 20, "memory", "memory", "lead", f"{row.get('vad_start')}-{row.get('vad_end')}", provenance))
+            elif "execute_writecopy" in protection:
+                observed.append({"type": "vad", "pid": profile.pid, "value": protection, "reason": "EXECUTE_WRITECOPY is common for mapped images and is not an injection finding by itself."})
+
+        for row in profile.artifact_context.get("ldrmodules", []):
+            flags = [row.get("in_load"), row.get("in_init"), row.get("in_mem")]
+            path = text(row.get("path"))
+            if flags and all(flag is False for flag in flags) and (path or row.get("base")):
                 findings.append(_finding(profile, "Loader-list discrepancy requires correlation", "Low", 10, "module", "module", "lead", path, f"ldr:{profile.process_key}:{text(row.get('base'))}:{canonical_windows_path(path)}"))
 
         for row in profile.artifact_context.get("pebmasquerade", []):
