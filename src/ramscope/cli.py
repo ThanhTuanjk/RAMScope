@@ -266,4 +266,483 @@ def reassess(
     current_tool_manifest = _collect_tool_manifest(str(_mapping(cfg.get("volatility", {})).get("command", "vol")), _runner_from_config(cfg), external_tools)
     result = analyze_case(destination, statuses, cfg, target_profile=selected_target, yara_rules=snapshot_rules, compiled_yara_path=compiled, external_tools=external_tools)
     write_json(destination / "normalized" / "plugin_status.json", statuses)
-    outputs = write_reports(destination, metadata, result.profiles, rÛŽ}¶‰žËkºwµçEÑ ¤€´øÍÑÈè(€€€¥˜¹½ÐÁ…Ñ ¹¥Í}™¥±” ¤è(€€€€€€€É•ÑÕÉ¸€ˆˆ(€€€É•ÑÕÉ¸}Í¡„ÈÔØ¡Á…Ñ ¤(()‘•˜}É•…¡Á…Ñ èA…Ñ °‘•™…Õ±Ðè¹ä¤€´ø¹äè(€€€É•ÑÕÉ¸É•…‘}©Í½¸¡Á…Ñ ¤¥˜Á…Ñ ¹•á¥ÍÑÌ ¤•±Í”‘•™…Õ±Ð(()‘•˜}ÍÑ…ÑÕÌ¡É½Üè‘¥ÑmÍÑÈ°¹åt¤€´øA±Õ¥¹MÑ…ÑÕÌè(€€€É•ÑÕÉ¸A±Õ¥¹MÑ…ÑÕÌ (€€€€€€€Á±Õ¥¸õÍÑÈ¡É½Ü¹•Ð ‰Á±Õ¥¸ˆ°€ˆˆ¤¤°(€€€€€€€ÍÑ…ÑÕÌõÍÑÈ¡É½Ü¹•Ð ‰ÍÑ…ÑÕÌˆ°€‰Õ¹…ÍÍ•ÍÍ•ˆ¤¤°(€€€€€€€É•ÑÕÉ¹}½‘”õ}½ÁÑ¥½¹…±}¥¹Ð¡É½Ü¹•Ð ‰É•ÑÕÉ¹}½‘”ˆ¤¤°(€€€€€€€½ÕÑÁÕÑ}Á…Ñ õÍÑÈ¡É½Ü¹•Ð ‰½ÕÑÁÕÑ}Á…Ñ ˆ°€ˆˆ¤¤°(€€€€€€€•ÉÉ½É}Á…Ñ õÍÑÈ¡É½Ü¹•Ð ‰•ÉÉ½É}Á…Ñ ˆ°€ˆˆ¤¤°(€€€€€€€‘ÕµÁ}™¥±•ÌõmÍÑÈ¡Ù…±Õ”¤™½ÈÙ…±Õ”¥¸É½Ü¹•Ð ‰‘ÕµÁ}™¥±•Ìˆ°mt¥t¥˜¥Í¥¹ÍÑ…¹”¡É½Ü¹•Ð ‰‘ÕµÁ}™¥±•Ìˆ¤°±¥ÍÐ¤•±Í”mt°(€€€€€€€É•Í½±Ù•‘}Á±Õ¥¸õÍÑÈ¡É½Ü¹•Ð ‰É•Í½±Ù•‘}Á±Õ¥¸ˆ°€ˆˆ¤¤°(€€€€€€€É•…Í½¸õÍÑÈ¡É½Ü¹•Ð ‰É•…Í½¸ˆ°€ˆˆ¤¤°(€€€€€€€½µµ…¹õmÍÑÈ¡Ù…±Õ”¤™½ÈÙ…±Õ”¥¸É½Ü¹•Ð ‰½µµ…¹ˆ°mt¥t¥˜¥Í¥¹ÍÑ…¹”¡É½Ü¹•Ð ‰½µµ…¹ˆ¤°±¥ÍÐ¤•±Í”mt°(€€€€€€€ÍÑ…ÉÑ•‘}…ÐõÍÑÈ¡É½Ü¹•Ð ‰ÍÑ…ÉÑ•‘}…Ðˆ°€ˆˆ¤¤°(€€€€€€€™¥¹¥Í¡•‘}…ÐõÍÑÈ¡É½Ü¹•Ð ‰™¥¹¥Í¡•‘}…Ðˆ°€ˆˆ¤¤°(€€€€€€€‘ÕÉ…Ñ¥½¹}Í•½¹‘Ìõ™±½…Ð¡É½Ü¹•Ð ‰‘ÕÉ…Ñ¥½¹}Í•½¹‘Ìˆ°€À¸À¤¤°(€€€€€€€ÍÑ‘½ÕÑ}Í¡„ÈÔØõÍÑÈ¡É½Ü¹•Ð ‰ÍÑ‘½ÕÑ}Í¡„ÈÔØˆ°€ˆˆ¤¤°(€€€€€€€•ÉÉ½É}Í¡„ÈÔØõÍÑÈ¡É½Ü¹•Ð ‰•ÉÉ½É}Í¡„ÈÔØˆ°€ˆˆ¤¤°(€€€€€€€‘ÕµÁ}¡…Í¡•ÌõíÍÑÈ¡­•ä¤èÍÑÈ¡Ù…±Õ”¤™½È­•ä°Ù…±Õ”¥¸}µ…ÁÁ¥¹œ¡É½Ü¹•Ð ‰‘ÕµÁ}¡…Í¡•Ìˆ°íô¤¤¹¥Ñ•µÌ ¥ô°(€€€€€€€±…¹”õÍÑÈ¡É½Ü¹•Ð ‰±…¹”ˆ°€ˆˆ¤¤°(€€€€€€€Ñ¥µ•½ÕÑ}Í•½¹‘Ìõ¥¹Ð¡É½Ü¹•Ð ‰Ñ¥µ•½ÕÑ}Í•½¹‘Ìˆ°€À¤¤°(€€€€€€€…¹…±åÍ¥Í}ÍÑ…ÑÕÌõÍÑÈ¡É½Ü¹•Ð ‰…¹…±åÍ¥Í}ÍÑ…ÑÕÌˆ°€‰Õ¹…ÍÍ•ÍÍ•ˆ¤¤°(€€€€¤(()‘•˜}Í¡„ÈÔØ¡Á…Ñ èA…Ñ ¤€´øÍÑÈè(€€€‘¥•ÍÐ€ô¡…Í¡±¥ˆ¹Í¡„ÈÔØ ¤(€€€Ý¥Ñ Á…Ñ ¹½Á•¸ ‰Éˆˆ¤…Ì™¥±•}½‰¨è(€€€€€€€™½È¡Õ¹¬¥¸¥Ñ•È¡±…µ‰‘„è™¥±•}½‰¨¹É•… ÄÀÈÐ€¨€ÄÀÈÐ¤°ˆˆˆ¤è(€€€€€€€€€€€‘¥•ÍÐ¹ÕÁ‘…Ñ”¡¡Õ¹¬¤(€€€É•ÑÕÉ¸‘¥•ÍÐ¹¡•á‘¥•ÍÐ ¤(()‘•˜}‰Õ¥±Ñ¥¹}å…É…}ÉÕ±•Í}‘¥È ¤€´øA…Ñ è(€€€É•ÑÕÉ¸A…Ñ ¡}}™¥±•}|¤¹É•Í½±Ù” ¤¹Á…É•¹Ð€¼€‰ÉÕ±•Ìˆ(()‘•˜}½¹™¥}Í¡„ÈÔØ¡½¹™¥œè‘¥ÑmÍÑÈ°¹åt°ÉÕ¹Ñ¥µ”è‘¥ÑmÍÑÈ°¹åt¤€´øÍÑÈè(€€€É•ÑÕÉ¸}½¹™¥}¡…Í ¡½¹™¥œ°ÉÕ¹Ñ¥µ”¤(()‘•˜}…¡•}½ÕÑÁÕÑ}Ù…±¥¡ÍÑ…ÑÕÌèA±Õ¥¹MÑ…ÑÕÌ°É…Ý}Á…Ñ èA…Ñ °…Í•}‘¥ÈèA…Ñ ð9½¹”€ô9½¹”¤€´ø‰½½°è(€€€¥˜¹½ÐÉ…Ý}Á…Ñ ¹¥Í}™¥±” ¤½È¹½ÐÍÑ…ÑÕÌ¹ÍÑ‘½ÕÑ}Í¡„ÈÔØè(€€€€€€€É•ÑÕÉ¸…±Í”(€€€¥˜}Í¡„ÈÔØ¡É…Ý}Á…Ñ ¤€„ôÍÑ…ÑÕÌ¹ÍÑ‘½ÕÑ}Í¡„ÈÔØè(€€€€€€€É•ÑÕÉ¸…±Í”(€€€¥˜ÍÑ…ÑÕÌ¹‘ÕµÁ}™¥±•Ì…¹¹½ÐÍÑ…ÑÕÌ¹‘ÕµÁ}¡…Í¡•Ìè(€€€€€€€É•ÑÕÉ¸…±Í”(€€€™½ÈÁ…Ñ °•áÁ•Ñ•¥¸ÍÑ…ÑÕÌ¹‘ÕµÁ}¡…Í¡•Ì¹¥Ñ•µÌ ¤è(€€€€€€€Ñ…É•Ð€ô}…Í•}‘ÕµÁ}Á…Ñ ¡…Í•}‘¥È°A…Ñ ¡Á…Ñ ¤¤¥˜…Í•}‘¥È¥Ì¹½Ð9½¹”•±Í”A…Ñ ¡Á…Ñ ¤(€€€€€€€¥˜¹½Ð•áÁ•Ñ•½ÈÑ…É•Ð¥Ì9½¹”½È¹½ÐÑ…É•Ð¹¥Í}™¥±” ¤½È}Í¡„ÈÔØ¡Ñ…É•Ð¤€„ô•áÁ•Ñ•è(€€€€€€€€€€€É•ÑÕÉ¸…±Í”(€€€É•ÑÕÉ¸QÉÕ”(()‘•˜}…Í•}‘ÕµÁ}Á…Ñ ¡…Í•}‘¥ÈèA…Ñ ð9½¹”°É•½É‘•èA…Ñ ¤€´øA…Ñ ð9½¹”è(€€€¥˜…Í•}‘¥È¥Ì9½¹”è(€€€€€€€É•ÑÕÉ¸É•½É‘•(€€€É½½Ð€ô€¡…Í•}‘¥È€¼€‰‘ÕµÁÌˆ¤¹É•Í½±Ù” ¤(€€€¥˜É•½É‘•¹¥Í}™¥±” ¤è(€€€€€€€ÑÉäè(€€€€€€€€€€€É•Í½±Ù•€ôÉ•½É‘•¹É•Í½±Ù” ¤(€€€€€€€€€€€¥˜É½½Ð€ôôÉ•Í½±Ù•½ÈÉ½½Ð¥¸É•Í½±Ù•¹Á…É•¹ÑÌè(€€€€€€€€€€€€€€€É•ÑÕÉ¸É•½É‘•(€€€€€€€•á•ÁÐ=MÉÉ½Èè(€€€€€€€€€€€Á…ÍÌ(€€€µ…Ñ¡•Ì€ômÁ…Ñ ™½ÈÁ…Ñ ¥¸É½½Ð¹É±½ˆ¡É•½É‘•¹¹…µ”¤¥˜Á…Ñ ¹¥Í}™¥±” ¥t¥˜É½½Ð¹¥Í}‘¥È ¤•±Í”mt(€€€É•ÑÕÉ¸µ…Ñ¡•ÍlÁt¥˜±•¸¡µ…Ñ¡•Ì¤€ôô€Ä•±Í”9½¹”(()‘•˜}Ù•É¥™å}…Í•}…ÉÑ¥™…ÑÌ¡…Í•}‘¥ÈèA…Ñ °ÍÑ…ÑÕÍ•Ìè±¥ÍÑmA±Õ¥¹MÑ…ÑÕÍt°µ•Ñ…‘…Ñ„è‘¥ÑmÍÑÈ°¹åt¤€´ø‘¥ÑmÍÑÈ°¹åtè(€€€¥˜¹½Ðµ•Ñ…‘…Ñ„¹•Ð ‰Í¡„ÈÔØˆ¤½È¹½Ðµ•Ñ…‘…Ñ„¹•Ð ‰™¥±•}Í¥é•}‰åÑ•Ìˆ¤è(€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰•Ù¥‘•¹”µ•Ñ…‘…Ñ„¥Ìµ¥ÍÍ¥¹œ¥ÑÌM!ÈÔØ½ÈÍ¥é”ˆ¤(€€€¥˜¹½ÐÍÑ…ÑÕÍ•Ìè(€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰Á±Õ¥¸ÍÑ…ÑÕÌ±•‘•È¥Ìµ¥ÍÍ¥¹œ½È•µÁÑäˆ¤(€€€•Ù¥‘•¹•}Á…Ñ €ôA…Ñ ¡ÍÑÈ¡µ•Ñ…‘…Ñ„¹•Ð ‰¥¹ÁÕÑ}™¥±”ˆ°€ˆˆ¤¤¤(€€€•Ù¥‘•¹•}Ù•É¥™¥•€ô…±Í”(€€€¥˜•Ù¥‘•¹•}Á…Ñ ¹¥Í}™¥±” ¤è(€€€€€€€ÕÉÉ•¹Ð€ô¡…Í¡}™¥±”¡•Ù¥‘•¹•}Á…Ñ ¤(€€€€€€€¥˜ÕÉÉ•¹Ð¹Í¡„ÈÔØ€„ôÍÑÈ¡µ•Ñ…‘…Ñ…l‰Í¡„ÈÔØ‰t¤½È•Ù¥‘•¹•}Á…Ñ ¹ÍÑ…Ð ¤¹ÍÑ}Í¥é”€„ô¥¹Ð¡µ•Ñ…‘…Ñ…l‰™¥±•}Í¥é•}‰åÑ•Ì‰t¤è(€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰Í½ÕÉ”•Ù¥‘•¹”¡…¹•…™Ñ•È…Í”É•…Ñ¥½¸ˆ¤(€€€€€€€•Ù¥‘•¹•}Ù•É¥™¥•€ôQÉÕ”(€€€É…Ý}‘¥È€ô…Í•}‘¥È€¼€‰É…Üˆ€¼€‰Ù½±…Ñ¥±¥Ñäˆ(€€€Ù•É¥™¥•‘}É…Ü€ô€À(€€€Ù•É¥™¥•‘}‘ÕµÁÌ€ô€À(€€€™½ÈÍÑ…ÑÕÌ¥¸ÍÑ…ÑÕÍ•Ìè(€€€€€€€¥˜ÍÑ…ÑÕÌ¹ÍÑ…ÑÕÌ¹½Ð¥¸ì‰ÍÕ•ÍÌˆ°€‰…¡•‰ôè(€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€¹…µ”€ôA…Ñ ¡ÍÑ…ÑÕÌ¹½ÕÑÁÕÑ}Á…Ñ ¤¹¹…µ”¥˜ÍÑ…ÑÕÌ¹½ÕÑÁÕÑ}Á…Ñ •±Í”˜‰íÍÑ…ÑÕÌ¹Á±Õ¥¹ô¹©Í½¸ˆ(€€€€€€€É…Ý}Á…Ñ €ôÉ…Ý}‘¥È€¼¹…µ”(€€€€€€€¥˜¹½Ð}…¡•}½ÕÑÁÕÑ}Ù…±¥¡ÍÑ…ÑÕÌ°É…Ý}Á…Ñ °…Í•}‘¥È¤è(€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È¡˜‰¡…Í µ¥Íµ…Ñ ½Èµ¥ÍÍ¥¹œ¡…Í ™½ÈíÍÑ…ÑÕÌ¹Á±Õ¥¹ôˆ¤(€€€€€€€Ù•É¥™¥•‘}É…Ü€¬ô€Ä(€€€€€€€Ù•É¥™¥•‘}‘ÕµÁÌ€¬ô±•¸¡ÍÑ…ÑÕÌ¹‘ÕµÁ}¡…Í¡•Ì¤(€€€É•ÑÕÉ¸ì‰Ù•É¥™¥•‘}É…Ý}½ÕÑÁÕÑÌˆèÙ•É¥™¥•‘}É…Ü°€‰Ù•É¥™¥•‘}‘ÕµÁ}™¥±•ÌˆèÙ•É¥™¥•‘}‘ÕµÁÌ°€‰Í½ÕÉ•}•Ù¥‘•¹•}Ù•É¥™¥•ˆè•Ù¥‘•¹•}Ù•É¥™¥•°€‰¡…Í¡}…±½É¥Ñ¡´ˆè€‰Í¡„ÈÔØ‰ô(()‘•˜}ÉÕ¹Ñ¥µ•}Á±Õ¥¹}…ÉÌ¡™œè‘¥ÑmÍÑÈ°¹åt°Á±Õ¥¸èÍÑÈ°å…É…}Í½ÕÉ”èA…Ñ ð±¥ÍÑmA…Ñ¡tð9½¹”¤€´ø±¥ÍÑmÍÑÉtè(€€€…ÉÌ€ôÁ±Õ¥¹}…ÉÍ}™½È¡™œ°Á±Õ¥¸¤(€€€¥˜Á±Õ¥¸€ôô€‰Ý¥¹‘½ÝÌ¹Ù…‘å…É…Í…¸ˆ…¹¹½Ð…¹ä¡¥Ñ•´¹ÍÑ…ÉÑÍÝ¥Ñ  ˆ´µå…É„´ˆ¤™½È¥Ñ•´¥¸…ÉÌ¤è(€€€€€€€…¹‘¥‘…Ñ•Ì€ômå…É…}Í½ÕÉ•t¥˜¥Í¥¹ÍÑ…¹”¡å…É…}Í½ÕÉ”°A…Ñ ¤•±Í”±¥ÍÐ¡å…É…}Í½ÕÉ”½Èmt¤(€€€€€€€™½È…¹‘¥‘…Ñ”¥¸…¹‘¥‘…Ñ•Ìè(€€€€€€€€€€€¥˜…¹‘¥‘…Ñ”¹¥Í}™¥±” ¤…¹…¹‘¥‘…Ñ”¹ÍÕ™™¥à¹…Í•™½± ¤€ôô€ˆ¹å…É…Œˆè(€€€€€€€€€€€€€€€É•ÑÕÉ¸…ÉÌ€¬lˆ´µå…É„µ½µÁ¥±•µ™¥±”ˆ°ÍÑÈ¡…¹‘¥‘…Ñ”¥t(€€€€€€€€€€€¥˜…¹‘¥‘…Ñ”¹¥Í}™¥±” ¤…¹…¹‘¥‘…Ñ”¹ÍÕ™™¥à¹…Í•™½± ¤¥¸ìˆ¹å…Èˆ°€ˆ¹å…É„‰ôè(€€€€€€€€€€€€€€€É•ÑÕÉ¸…ÉÌ€¬lˆ´µå…É„µ™¥±”ˆ°ÍÑÈ¡…¹‘¥‘…Ñ”¥t(€€€€€€€€€€€¥˜…¹‘¥‘…Ñ”¹¥Í}‘¥È ¤è(€€€€€€€€€€€€€€€ÉÕ±”€ô¹•áÐ¡¥Ñ•È¡}•¹Õµ•É…Ñ•}ÉÕ±•}™¥±•Ì¡m…¹‘¥‘…Ñ•t¤¤°9½¹”¤(€€€€€€€€€€€€€€€¥˜ÉÕ±”è(€€€€€€€€€€€€€€€€€€€É•ÑÕÉ¸…ÉÌ€¬lˆ´µå…É„µ™¥±”ˆ°ÍÑÈ¡ÉÕ±”¥t(€€€É•ÑÕÉ¸…ÉÌ(()‘•˜}Á±Õ¥¹}Í­¥Á}É•…Í½¸¡Á±Õ¥¸èÍÑÈ°…ÉÌè±¥ÍÑmÍÑÉt¤€´øÍÑÈè(€€€¥˜Á±Õ¥¸€ôô€‰Ý¥¹‘½ÝÌ¹Ù…‘å…É…Í…¸ˆ…¹¹½Ð…¹ä¡¥Ñ•´¹ÍÑ…ÉÑÍÝ¥Ñ  ˆ´µå…É„´ˆ¤™½È¥Ñ•´¥¸…ÉÌ¤è(€€€€€€€É•ÑÕÉ¸€‰Ý¥¹‘½ÝÌ¹Ù…‘å…É…Í…¸É•ÅÕ¥É•Ì…¸•¹…‰±•eIÍ½ÕÉ”¸ˆ(€€€É•ÑÕÉ¸€ˆˆ(()‘•˜}Í¡½Õ±‘}…ÁÑÕÉ•}‘ÕµÀ¡Á±Õ¥¸èÍÑÈ°¹½}µ…±™¥¹‘}‘ÕµÀè‰½½°°¥¹±Õ‘•}‘ÕµÁ}…ÉÑ¥™…ÑÌè‰½½°¤€´ø‰½½°è(€€€¥˜Á±Õ¥¸€ôô€‰Ý¥¹‘½ÝÌ¹µ…±™¥¹ˆè(€€€€€€€É•ÑÕÉ¸¹½Ð¹½}µ…±™¥¹‘}‘ÕµÀ(€€€É•ÑÕÉ¸¥¹±Õ‘•}‘ÕµÁ}…ÉÑ¥™…ÑÌ…¹Á±Õ¥¸¥¸ì‰Ý¥¹‘½ÝÌ¹‘ÕµÁ™¥±•Ìˆ°€‰Ý¥¹‘½ÝÌ¹‘±±±¥ÍÐˆ°€‰Ý¥¹‘½ÝÌ¹µ•µµ…À‰ô(()‘•˜}•áÑ•É¹…±}Ñ½½±}Í•ÑÑ¥¹Ì¡™œè‘¥ÑmÍÑÈ°¹åt°¹½}™±½ÍÌè‰½½°°¹½}…Á„è‰½½°°¹½}±…µ…Øè‰½½°°¹½}‘¥”è‰½½°°¹½}Á•™¥±”è‰½½°¤€´ø‘¥ÑmÍÑÈ°¹åtè(€€€½¹™¥ÕÉ•€ô}µ…ÁÁ¥¹œ¡}µ…ÁÁ¥¹œ¡™œ¹•Ð ‰…¹…±åÍ¥Ìˆ°íô¤¤¹•Ð ‰•áÑ•É¹…±}Ñ½½±Ìˆ°íô¤¤(€€€É•ÑÕÉ¸ì(€€€€€€€€‰•¹…‰±•}™±½ÍÌˆè‰½½°¡½¹™¥ÕÉ•¹•Ð ‰•¹…‰±•}™±½ÍÌˆ°QÉÕ”¤¤…¹¹½Ð¹½}™±½ÍÌ°(€€€€€€€€‰•¹…‰±•}…Á„ˆè‰½½°¡½¹™¥ÕÉ•¹•Ð ‰•¹…‰±•}…Á„ˆ°QÉÕ”¤¤…¹¹½Ð¹½}…Á„°(€€€€€€€€‰•¹…‰±•}±…µ…Øˆè‰½½°¡½¹™¥ÕÉ•¹•Ð ‰•¹…‰±•}±…µ…Øˆ°QÉÕ”¤¤…¹¹½Ð¹½}±…µ…Ø°(€€€€€€€€‰•¹…‰±•}‘¥”ˆè‰½½°¡½¹™¥ÕÉ•¹•Ð ‰•¹…‰±•}‘¥”ˆ°QÉÕ”¤¤…¹¹½Ð¹½}‘¥”°(€€€€€€€€‰•¹…‰±•}Á•™¥±”ˆè‰½½°¡½¹™¥ÕÉ•¹•Ð ‰•¹…‰±•}Á•™¥±”ˆ°QÉÕ”¤¤…¹¹½Ð¹½}Á•™¥±”°(€€€€€€€€‰…Á…}ÉÕ±•ÌˆèÍÑÈ¡½¹™¥ÕÉ•¹•Ð ‰…Á…}ÉÕ±•Ìˆ°€ˆˆ¤¤°(€€€€€€€€‰Ñ¥µ•½ÕÑ}Í•½¹‘Ìˆè¥¹Ð¡½¹™¥ÕÉ•¹•Ð ‰Ñ¥µ•½ÕÑ}Í•½¹‘Ìˆ°€ÄÈÀ¤¤°(€€€€€€€€‰µ…á}™¥±•}Í¥é•}µˆˆè¥¹Ð¡½¹™¥ÕÉ•¹•Ð ‰µ…á}™¥±•}Í¥é•}µˆˆ°€ÄÀÀ¤¤°(€€€€€€€€‰µ…á}½ÕÑÁÕÑ}µˆˆè¥¹Ð¡½¹™¥ÕÉ•¹•Ð ‰µ…á}½ÕÑÁÕÑ}µˆˆ°€ÌÈ¤¤°(€€€ô(()‘•˜}‘•‘ÕÁ•}™¥¹‘¥¹Ì¡™¥¹‘¥¹Ìè±¥ÍÑm¥¹‘¥¹t¤€´ø±¥ÍÑm¥¹‘¥¹tè(€€€µ•É•è‘¥ÑmÑÕÁ±•mÍÑÈ°¥¹Ðð9½¹”°ÍÑÈ°ÍÑÉt°¥¹‘¥¹t€ôíô(€€€™½È™¥¹‘¥¹œ¥¸™¥¹‘¥¹Ìè(€€€€€€€­•ä€ô€¡™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}­•ä°™¥¹‘¥¹œ¹Á¥°™¥¹‘¥¹œ¹…Ñ•½Éä°™¥¹‘¥¹œ¹Ñ¥Ñ±”¤(€€€€€€€•á¥ÍÑ¥¹œ€ôµ•É•¹•Ð¡­•ä¤(€€€€€€€¥˜•á¥ÍÑ¥¹œ¥Ì9½¹”è(€€€€€€€€€€€µ•É•‘m­•åt€ô™¥¹‘¥¹œ(€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€•á¥ÍÑ¥¹œ¹Í½É”€ôµ…à¡•á¥ÍÑ¥¹œ¹Í½É”°™¥¹‘¥¹œ¹Í½É”¤(€€€€€€€½É‘•È€ôì‰Õ¹Ù•É¥™¥•ˆè€À°€‰±½Üˆè€Ä°€‰Á½ÍÍ¥‰±”ˆè€È°€‰±¥­•±äˆè€Ì°€‰¡¥ ˆè€Ð°€‰½ÉÉ½‰½É…Ñ•ˆè€Õô(€€€€€€€¥˜½É‘•È¹•Ð¡™¥¹‘¥¹œ¹½¹™¥‘•¹”°€À¤€ø½É‘•È¹•Ð¡•á¥ÍÑ¥¹œ¹½¹™¥‘•¹”°€À¤è(€€€€€€€€€€€•á¥ÍÑ¥¹œ¹½¹™¥‘•¹”€ô™¥¹‘¥¹œ¹½¹™¥‘•¹”(€€€€€€€•á¥ÍÑ¥¹œ¹½ÕÉÉ•¹•}½Õ¹Ð€¬ô™¥¹‘¥¹œ¹½ÕÉÉ•¹•}½Õ¹Ð(€€€€€€€•á¥ÍÑ¥¹œ¹•Ù¥‘•¹”¹•áÑ•¹¡¥Ñ•´™½È¥Ñ•´¥¸™¥¹‘¥¹œ¹•Ù¥‘•¹”¥˜¥Ñ•´¹½Ð¥¸•á¥ÍÑ¥¹œ¹•Ù¥‘•¹”¤(€€€€€€€•á¥ÍÑ¥¹œ¹ÁÉ½Ù•¹…¹•}¥‘Ì€ôÍ½ÉÑ•¡Í•Ð¡•á¥ÍÑ¥¹œ¹ÁÉ½Ù•¹…¹•}¥‘Ì€¬™¥¹‘¥¹œ¹ÁÉ½Ù•¹…¹•}¥‘Ì¤¤(€€€É•ÑÕÉ¸±¥ÍÐ¡µ•É•¹Ù…±Õ•Ì ¤¤(()‘•˜}Ù…±¥‘…Ñ•}™½Éµ…Ð¡Ù…±Õ”èÍÑÈ¤€´øÍÑÈè(€€€¹½Éµ…±¥é•€ôÙ…±Õ”¹…Í•™½± ¤(€€€¥˜¹½Éµ…±¥é•¹½Ð¥¸Y1%}=I5QLè(€€€€€€€É…¥Í”ÑåÁ•È¹	…‘A…É…µ•Ñ•È ˆ´µ™½Éµ…ÐµÕÍÐ‰”µ°µ…É­‘½Ý¸°¡Ñµ°°Á‘˜°½È…±°ˆ¤(€€€É•ÑÕÉ¸¹½Éµ…±¥é•(()‘•˜}Ù…±¥‘…Ñ•}É•Á½ÉÑ}½¹™¥ÕÉ…Ñ¥½¸¡½ÕÑÁÕÑ}™½Éµ…ÐèÍÑÈ°…¹…±åÍ¥Í}™œè‘¥ÑmÍÑÈ°¹åt¤€´ø9½¹”è(€€€¥˜½ÕÑÁÕÑ}™½Éµ…Ð¥¸ì‰¡Ñµ°ˆ°€‰…±°‰ô…¹¹½Ð‰½½°¡…¹…±åÍ¥Í}™œ¹•Ð ‰•¹…‰±•}¡Ñµ±}É•Á½ÉÐˆ°QÉÕ”¤¤è(€€€€€€€É…¥Í”ÑåÁ•È¹	…‘A…É…µ•Ñ•È ‰!Q50É•Á½ÉÑ¥¹œ¥Ì‘¥Í…‰±•‰äÑ¡”•™™•Ñ¥Ù”½¹™¥ÕÉ…Ñ¥½¸¸ˆ¤(€€€¥˜½ÕÑÁÕÑ}™½Éµ…Ð¥¸ì‰Á‘˜ˆ°€‰…±°‰ô…¹¹½Ð‰½½°¡…¹…±åÍ¥Í}™œ¹•Ð ‰•¹…‰±•}Á‘™}É•Á½ÉÐˆ°…±Í”¤¤è(€€€€€€€É…¥Í”ÑåÁ•È¹	…‘A…É…µ•Ñ•È ‰AÉ•Á½ÉÑ¥¹œ¥Ì‘¥Í…‰±•‰äÑ¡”•™™•Ñ¥Ù”½¹™¥ÕÉ…Ñ¥½¸¸ˆ¤(()‘•˜}•¹Õµ•É…Ñ•}ÉÕ±•}™¥±•Ì¡Á…Ñ¡Ìè±¥ÍÑmA…Ñ¡t¤€´ø±¥ÍÑmA…Ñ¡tè(€€€™¥±•Ìè±¥ÍÑmA…Ñ¡t€ômt(€€€™½ÈÁ…Ñ ¥¸Á…Ñ¡Ìè(€€€€€€€¥˜Á…Ñ ¹¥Í}™¥±” ¤…¹Á…Ñ ¹ÍÕ™™¥à¹…Í•™½± ¤¥¸ìˆ¹å…Èˆ°€ˆ¹å…É„ˆ°€ˆ¹å…É…Œ‰ôè(€€€€€€€€€€€™¥±•Ì¹…ÁÁ•¹¡Á…Ñ ¹É•Í½±Ù” ¤¤(€€€€€€€•±¥˜Á…Ñ ¹¥Í}‘¥È ¤è(€€€€€€€€€€€™¥±•Ì¹•áÑ•¹¡…¹‘¥‘…Ñ”¹É•Í½±Ù” ¤™½È…¹‘¥‘…Ñ”¥¸Á…Ñ ¹É±½ˆ ˆ¨ˆ¤¥˜…¹‘¥‘…Ñ”¹¥Í}™¥±” ¤…¹…¹‘¥‘…Ñ”¹ÍÕ™™¥à¹…Í•™½± ¤¥¸ìˆ¹å…Èˆ°€ˆ¹å…É„ˆ°€ˆ¹å…É…Œ‰ô¤(€€€É•ÑÕÉ¸Í½ÉÑ•¡‘¥Ð¹™É½µ­•åÌ¡™¥±•Ì¤¤(()‘•˜}ÉÕ±•}¥¹Ù•¹Ñ½Éä¡Á…Ñ¡Ìè±¥ÍÑmA…Ñ¡t¤€´ø±¥ÍÑm‘¥ÑmÍÑÈ°¹åutè(€€€É•ÑÕÉ¸mì‰Á…Ñ ˆèÍÑÈ¡Á…Ñ ¤°€‰Í¡„ÈÔØˆè}Í¡„ÈÔØ¡Á…Ñ ¤°€‰Í¥é”ˆèÁ…Ñ ¹ÍÑ…Ð ¤¹ÍÑ}Í¥é•ô™½ÈÁ…Ñ ¥¸}•¹Õµ•É…Ñ•}ÉÕ±•}™¥±•Ì¡Á…Ñ¡Ì¥t(()‘•˜}Í¹…ÁÍ¡½Ñ}å…É…}ÉÕ±•Ì¡…Í•}‘¥ÈèA…Ñ °Á…Ñ¡Ìè±¥ÍÑmA…Ñ¡t°•¹…‰±•è‰½½°¤€´øÑÕÁ±•m±¥ÍÑmA…Ñ¡t°‘¥ÑmÍÑÈ°¹åutè(€€€µ…¹¥™•ÍÐè‘¥ÑmÍÑÈ°¹åt€ôì‰•¹…‰±•ˆè•¹…‰±•°€‰™¥±•Ìˆèmt°€‰½µÁ¥±•}ÍÑ…ÑÕÌˆèíõô(€€€¥˜¹½Ð•¹…‰±•è(€€€€€€€É•ÑÕÉ¸mt°µ…¹¥™•ÍÐ(€€€‘•ÍÑ¥¹…Ñ¥½¸€ô…Í•}‘¥È€¼€‰•Ù¥‘•¹”ˆ€¼€‰å…É…}ÉÕ±•Ìˆ(€€€‘•ÍÑ¥¹…Ñ¥½¸¹µ­‘¥È¡Á…É•¹ÑÌõQÉÕ”°•á¥ÍÑ}½¬õQÉÕ”¤(€€€Í¹…ÁÍ¡½ÑÌè±¥ÍÑmA…Ñ¡t€ômt(€€€‰Õ¥±Ñ¥¹}É½½Ð€ô}‰Õ¥±Ñ¥¹}å…É…}ÉÕ±•Í}‘¥È ¤¹É•Í½±Ù” ¤(€€€™½ÈÍ½ÕÉ”¥¸}•¹Õµ•É…Ñ•}ÉÕ±•}™¥±•Ì¡Á…Ñ¡Ì¤è(€€€€€€€‘¥•ÍÐ€ô}Í¡„ÈÔØ¡Í½ÕÉ”¤(€€€€€€€Ñ…É•Ð€ô‘•ÍÑ¥¹…Ñ¥½¸€¼˜‰í‘¥•ÍÑlèÄÉuõ}íÍ½ÕÉ”¹¹…µ•ôˆ(€€€€€€€Í¡ÕÑ¥°¹½ÁäÈ¡Í½ÕÉ”°Ñ…É•Ð¤(€€€€€€€Í¹…ÁÍ¡½ÑÌ¹…ÁÁ•¹¡Ñ…É•Ð¤(€€€€€€€µ…¹¥™•ÍÑl‰™¥±•Ì‰t¹…ÁÁ•¹ (€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€‰½É¥¥¹…±}Á…Ñ ˆèÍÑÈ¡Í½ÕÉ”¤°(€€€€€€€€€€€€€€€€‰Í¹…ÁÍ¡½Ñ}Á…Ñ ˆèÍÑÈ¡Ñ…É•Ð¹É•±…Ñ¥Ù•}Ñ¼¡…Í•}‘¥È¤¤°(€€€€€€€€€€€€€€€€‰Í¡„ÈÔØˆè‘¥•ÍÐ°(€€€€€€€€€€€€€€€€‰Í¥é”ˆèÍ½ÕÉ”¹ÍÑ…Ð ¤¹ÍÑ}Í¥é”°(€€€€€€€€€€€€€€€€‰‰Õ¥±Ñ}¥¸ˆè‰Õ¥±Ñ¥¹}É½½Ð€ôôÍ½ÕÉ”¹Á…É•¹Ð½È‰Õ¥±Ñ¥¹}É½½Ð¥¸Í½ÕÉ”¹Á…É•¹ÑÌ°(€€€€€€€€€€€€€€€€‰½µÁ¥±•ˆèÍ½ÕÉ”¹ÍÕ™™¥à¹…Í•™½± ¤€ôô€ˆ¹å…É…Œˆ°(€€€€€€€€€€€ô(€€€€€€€€¤(€€€É•ÑÕÉ¸Í¹…ÁÍ¡½ÑÌ°µ…¹¥™•ÍÐ(()‘•˜}µ…¹¥™•ÍÑ}ÉÕ±•}Á…Ñ¡Ì¡…Í•}‘¥ÈèA…Ñ °µ…¹¥™•ÍÑ}Ù…±Õ”è¹ä¤€´ø±¥ÍÑmA…Ñ¡tè(€€€µ…¹¥™•ÍÐ€ô}µ…ÁÁ¥¹œ¡µ…¹¥™•ÍÑ}Ù…±Õ”¤(€€€™¥±•Ì€ôµ…¹¥™•ÍÐ¹•Ð ‰™¥±•Ìˆ°mt¤(€€€É•ÍÕ±Ðè±¥ÍÑmA…Ñ¡t€ômt(€€€¥˜¥Í¥¹ÍÑ…¹”¡™¥±•Ì°±¥ÍÐ¤è(€€€€€€€™½ÈÉ½Ü¥¸™¥±•Ìè(€€€€€€€€€€€¥˜¹½Ð¥Í¥¹ÍÑ…¹”¡É½Ü°‘¥Ð¤è(€€€€€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€€€€€Á…Ñ €ô…Í•}‘¥È€¼ÍÑÈ¡É½Ü¹•Ð ‰Í¹…ÁÍ¡½Ñ}Á…Ñ ˆ°€ˆˆ¤¤(€€€€€€€€€€€¥˜Á…Ñ ¹¥Í}™¥±” ¤è(€€€€€€€€€€€€€€€É•ÍÕ±Ð¹…ÁÁ•¹¡Á…Ñ ¤(€€€É•ÑÕÉ¸É•ÍÕ±Ð(()‘•˜}Ù•É¥™å}å…É…}µ…¹¥™•ÍÐ¡…Í•}‘¥ÈèA…Ñ °µ…¹¥™•ÍÑ}Ù…±Õ”è¹ä¤€´ø‘¥ÑmÍÑÈ°¹åtè(€€€µ…¹¥™•ÍÐ€ô}µ…ÁÁ¥¹œ¡µ…¹¥™•ÍÑ}Ù…±Õ”¤(€€€¥˜¹½Ð‰½½°¡µ…¹¥™•ÍÐ¹•Ð ‰•¹…‰±•ˆ°…±Í”¤¤è(€€€€€€€É•ÑÕÉ¸ì‰Ù•É¥™¥•‘}å…É…}ÉÕ±•Ìˆè€À°€‰å…É…}•¹…‰±•ˆè…±Í•ô(€€€Á…Ñ¡Ì€ô}µ…¹¥™•ÍÑ}ÉÕ±•}Á…Ñ¡Ì¡…Í•}‘¥È°µ…¹¥™•ÍÐ¤(€€€•áÁ•Ñ•‘}É½ÝÌ€ômÉ½Ü™½ÈÉ½Ü¥¸µ…¹¥™•ÍÐ¹•Ð ‰™¥±•Ìˆ°mt¤¥˜¥Í¥¹ÍÑ…¹”¡É½Ü°‘¥Ð¥t¥˜¥Í¥¹ÍÑ…¹”¡µ…¹¥™•ÍÐ¹•Ð ‰™¥±•Ìˆ¤°±¥ÍÐ¤•±Í”mt(€€€¥˜±•¸¡Á…Ñ¡Ì¤€„ô±•¸¡•áÁ•Ñ•‘}É½ÝÌ¤è(€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰½¹”½Èµ½É”Í¹…ÁÍ¡½ÑÑ•eIÉÕ±•Ì…É”µ¥ÍÍ¥¹œˆ¤(€€€™½ÈÁ…Ñ °É½Ü¥¸é¥À¡Á…Ñ¡Ì°•áÁ•Ñ•‘}É½ÝÌ°ÍÑÉ¥ÐõQÉÕ”¤è(€€€€€€€¥˜}Í¡„ÈÔØ¡Á…Ñ ¤€„ôÍÑÈ¡É½Ü¹•Ð ‰Í¡„ÈÔØˆ°€ˆˆ¤¤è(€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È¡˜‰eIÉÕ±”¡…Í µ¥Íµ…Ñ èíÁ…Ñ ¹¹…µ•ôˆ¤(€€€É•ÑÕÉ¸ì‰Ù•É¥™¥•‘}å…É…}ÉÕ±•Ìˆè±•¸¡Á…Ñ¡Ì¤°€‰å…É…}•¹…‰±•ˆèQÉÕ•ô(()‘•˜}½±±•Ñ}Ñ½½±}µ…¹¥™•ÍÐ¡Ù½±…Ñ¥±¥Ñå}½µµ…¹èÍÑÈ°ÉÕ¹¹•ÈèY½±…Ñ¥±¥ÑåIÕ¹¹•È°•áÑ•É¹…±}Í•ÑÑ¥¹Ìè‘¥ÑmÍÑÈ°¹åt¤€´ø‘¥ÑmÍÑÈ°¹åtè(€€€Ñ½½±Ìè±¥ÍÑm‘¥ÑmÍÑÈ°¹åut€ômt(€€€Ù½±}Á…Ñ €ôÍ¡ÕÑ¥°¹Ý¡¥ ¡Ù½±…Ñ¥±¥Ñå}½µµ…¹¤½ÈÙ½±…Ñ¥±¥Ñå}½µµ…¹(€€€Ñ½½±Ì¹…ÁÁ•¹¡}Ñ½½±}•¹ÑÉä ‰Ù½±…Ñ¥±¥ÑäÌˆ°Ù½±}Á…Ñ °ÉÕ¹¹•È¹Ù•ÉÍ¥½¹}Ñ•áÐ ¤°ÉÕ¹¹•È¹¥Í}…Ù…¥±…‰±” ¤°QÉÕ”¤¤(€€€½ÁÑ¥½¹…°€ôì(€€€€€€€€‰™±½ÍÌˆè€ ‰™±½ÍÌˆ°‰½½°¡•áÑ•É¹…±}Í•ÑÑ¥¹Ì¹•Ð ‰•¹…‰±•}™±½ÍÌˆ°…±Í”¤¤¤°(€€€€€€€€‰…Á„ˆè€ ‰…Á„ˆ°‰½½°¡•áÑ•É¹…±}Í•ÑÑ¥¹Ì¹•Ð ‰•¹…‰±•}…Á„ˆ°…±Í”¤¤¤°(€€€€€€€€‰±…µ…Øˆè€ ‰±…µÍ…¸ˆ°‰½½°¡•áÑ•É¹…±}Í•ÑÑ¥¹Ì¹•Ð ‰•¹…‰±•}±…µ…Øˆ°…±Í”¤¤¤°(€€€€€€€€‰‘•Ñ•Ðµ¥Ðµ•…Íäˆè€ ‰‘¥•Œˆ°‰½½°¡•áÑ•É¹…±}Í•ÑÑ¥¹Ì¹•Ð ‰•¹…‰±•}‘¥”ˆ°…±Í”¤¤¤°(€€€ô(€€€™½È¹…µ”°€¡½µµ…¹°•¹…‰±•¤¥¸½ÁÑ¥½¹…°¹¥Ñ•µÌ ¤è(€€€€€€€Á…Ñ €ôÍ¡ÕÑ¥°¹Ý¡¥ ¡½µµ…¹¤½È€ˆˆ(€€€€€€€Ñ½½±Ì¹…ÁÁ•¹¡}Ñ½½±}•¹ÑÉä¡¹…µ”°Á…Ñ °}½µµ…¹‘}Ù•ÉÍ¥½¸¡Á…Ñ ¤¥˜Á…Ñ •±Í”€‰Õ¹…Ù…¥±…‰±”ˆ°‰½½°¡Á…Ñ ¤°•¹…‰±•¤¤(€€€™½ÈÁ…­…”°•¹…‰±•¥¸€  ‰Á•™¥±”ˆ°‰½½°¡•áÑ•É¹…±}Í•ÑÑ¥¹Ì¹•Ð ‰•¹…‰±•}Á•™¥±”ˆ°…±Í”¤¤¤°€ ‰å…É„µÁåÑ¡½¸ˆ°QÉÕ”¤¤è(€€€€€€€ÑÉäè(€€€€€€€€€€€Ù•ÉÍ¥½¸€ô¥µÁ½ÉÑ±¥ˆ¹µ•Ñ…‘…Ñ„¹Ù•ÉÍ¥½¸¡Á…­…”¤(€€€€€€€€€€€…Ù…¥±…‰±”€ôQÉÕ”(€€€€€€€•á•ÁÐ¥µÁ½ÉÑ±¥ˆ¹µ•Ñ…‘…Ñ„¹A…­…•9½Ñ½Õ¹‘ÉÉ½Èè(€€€€€€€€€€€Ù•ÉÍ¥½¸€ô€‰Õ¹…Ù…¥±…‰±”ˆ(€€€€€€€€€€€…Ù…¥±…‰±”€ô…±Í”(€€€€€€€Ñ½½±Ì¹…ÁÁ•¹¡ì‰Ñ½½°ˆèÁ…­…”°€‰•¹…‰±•ˆè•¹…‰±•°€‰…Ù…¥±…‰±”ˆè…Ù…¥±…‰±”°€‰Ù•ÉÍ¥½¸ˆèÙ•ÉÍ¥½¸°€‰‰¥¹…Éå}Á…Ñ ˆè€ˆˆ°€‰Í¡„ÈÔØˆè€ˆ‰ô¤(€€€É•ÑÕÉ¸ì‰…ÁÑÕÉ•‘}…Ðˆè‘…Ñ•Ñ¥µ”¹¹½Ü¡Ñ¥µ•é½¹”¹ÕÑŒ¤¹¥Í½™½Éµ…Ð ¤°€‰Ñ½½±ÌˆèÑ½½±Íô(()‘•˜}Ñ½½±}•¹ÑÉä¡¹…µ”èÍÑÈ°Á…Ñ¡}Ù…±Õ”èÍÑÈ°Ù•ÉÍ¥½¸èÍÑÈ°…Ù…¥±…‰±”è‰½½°°•¹…‰±•è‰½½°¤€´ø‘¥ÑmÍÑÈ°¹åtè(€€€Á…Ñ €ôA…Ñ ¡Á…Ñ¡}Ù…±Õ”¤¥˜Á…Ñ¡}Ù…±Õ”•±Í”9½¹”(€€€É•ÑÕÉ¸ì(€€€€€€€€‰Ñ½½°ˆè¹…µ”°(€€€€€€€€‰•¹…‰±•ˆè•¹…‰±•°(€€€€€€€€‰…Ù…¥±…‰±”ˆè…Ù…¥±…‰±”°(€€€€€€€€‰Ù•ÉÍ¥½¸ˆèÙ•ÉÍ¥½¸°(€€€€€€€€‰‰¥¹…Éå}Á…Ñ ˆèÁ…Ñ¡}Ù…±Õ”°(€€€€€€€€‰Í¡„ÈÔØˆè}Í¡„ÈÔØ¡Á…Ñ ¤¥˜Á…Ñ ¥Ì¹½Ð9½¹”…¹Á…Ñ ¹¥Í}™¥±” ¤•±Í”€ˆˆ°(€€€ô(()‘•˜}½µµ…¹‘}Ù•ÉÍ¥½¸¡Á…Ñ èÍÑÈ¤€´øÍÑÈè(€€€ÑÉäè(€€€€€€€½µÁ±•Ñ•€ôÍÕ‰ÁÉ½•ÍÌ¹ÉÕ¸¡mÁ…Ñ °€ˆ´µÙ•ÉÍ¥½¸‰t°…ÁÑÕÉ•}½ÕÑÁÕÐõQÉÕ”°Ñ•áÐõQÉÕ”°Ñ¥µ•½ÕÐôÄÀ°¡•¬õ…±Í”¤(€€€•á•ÁÐ€¡=MÉÉ½È°ÍÕ‰ÁÉ½•ÍÌ¹MÕ‰ÁÉ½•ÍÍÉÉ½È¤è(€€€€€€€É•ÑÕÉ¸€‰Ù•ÉÍ¥½¸Õ¹…Ù…¥±…‰±”ˆ(€€€Ù…±Õ”€ô€¡½µÁ±•Ñ•¹ÍÑ‘½ÕÐ½È½µÁ±•Ñ•¹ÍÑ‘•ÉÈ½È€ˆˆ¤¹ÍÑÉ¥À ¤¹ÍÁ±¥Ñ±¥¹•Ì ¤(€€€É•ÑÕÉ¸Ù…±Õ•lÁulèÌÀÁt¥˜Ù…±Õ”•±Í”˜‰É•ÑÕÉ¹}½‘”õí½µÁ±•Ñ•¹É•ÑÕÉ¹½‘•ôˆ(()‘•˜}ÉÕ¹¹•É}™É½µ}½¹™¥œ¡™œè‘¥ÑmÍÑÈ°¹åt¤€´øY½±…Ñ¥±¥ÑåIÕ¹¹•Èè(€€€Ù½°€ô}µ…ÁÁ¥¹œ¡™œ¹•Ð ‰Ù½±…Ñ¥±¥Ñäˆ°íô¤¤(€€€‰Õ¥±‘•È€ôY½±…Ñ¥±¥Ñå½µµ…¹‘	Õ¥±‘•È¡ÍÑÈ¡Ù½°¹•Ð ‰½µµ…¹ˆ°€‰Ù½°ˆ¤¤°ÍÑÈ¡Ù½°¹•Ð ‰É•¹‘•É•Èˆ°€‰©Í½¸ˆ¤¤°‰½½°¡Ù½°¹•Ð ‰ÅÕ¥•Ðˆ°QÉÕ”¤¤¤(€€€É•ÑÕÉ¸Y½±…Ñ¥±¥ÑåIÕ¹¹•È¡‰Õ¥±‘•È°¥¹Ð¡Ù½°¹•Ð ‰Ñ¥µ•½ÕÑ}Í•½¹‘Ìˆ°€ØÀÀ¤¤¤(()‘•˜}µ…ÁÁ¥¹œ¡Ù…±Õ”è¹ä¤€´ø‘¥ÑmÍÑÈ°¹åtè(€€€É•ÑÕÉ¸Ù…±Õ”¥˜¥Í¥¹ÍÑ…¹”¡Ù…±Õ”°‘¥Ð¤•±Í”íô(()‘•˜}É½Ý}±¥ÍÐ¡Ù…±Õ”è¹ä¤€´ø±¥ÍÑm‘¥ÑmÍÑÈ°¹åutè(€€€É•ÑÕÉ¸m¥Ñ•´™½È¥Ñ•´¥¸Ù…±Õ”¥˜¥Í¥¹ÍÑ…¹”¡¥Ñ•´°‘¥Ð¥t¥˜¥Í¥¹ÍÑ…¹”¡Ù…±Õ”°±¥ÍÐ¤•±Í”mt(()‘•˜}½ÁÑ¥½¹…±}¥¹Ð¡Ù…±Õ”è¹ä¤€´ø¥¹Ðð9½¹”è(€€€¥˜Ù…±Õ”¥¸€¡9½¹”°€ˆˆ¤è(€€€€€€€É•ÑÕÉ¸9½¹”(€€€ÑÉäè(€€€€€€€É•ÑÕÉ¸¥¹Ð¡Ù…±Õ”¤(€€€•á•ÁÐ€¡QåÁ•ÉÉ½È°Y…±Õ•ÉÉ½È¤è(€€€€€€€É•ÑÕÉ¸9½¹”(()‘•˜}¹½Éµ…±¥é•}…¹‘}…¹…±åé” (€€€…Í•}‘¥ÈèA…Ñ °(€€€‘ÕµÁ}™¥±•Ìè±¥ÍÑmÍÑÉt°(€€€ÍÑ…ÑÕÍ•Ìè±¥ÍÑmA±Õ¥¹MÑ…ÑÕÍt°(€€€€¨°(€€€•áÑ•É¹…±}Ñ½½±Ìè‘¥ÑmÍÑÈ°¹åtð9½¹”€ô9½¹”°(¤è(€€€€ˆˆ‰½µÁ…Ñ¥‰¥±¥ÑäÝÉ…ÁÁ•È™½È¥¹Ñ•É…Ñ¥½¹ÌÑ¡…ÐÁÉ•Ù¥½ÕÍ±ä¥¹Ù½­•¹½Éµ…±¥é…Ñ¥½¸‘¥É•Ñ±ä¸ˆˆˆ(€€€‘•°‘ÕµÁ}™¥±•Ì(€€€É•ÑÕÉ¸…¹…±åé•}…Í”¡…Í•}‘¥È°ÍÑ…ÑÕÍ•Ì°±½…‘}½¹™¥œ ¤°•áÑ•É¹…±}Ñ½½±Ìõ•áÑ•É¹…±}Ñ½½±Ì½Èíô¤(
+    outputs = write_reports(destination, metadata, result.profiles, result.findings, result.iocs, statuses, result.target, result.unresolved, normalized_format, bool(_mapping(cfg.get("analysis", {})).get("enable_pdf_report", False)))
+    write_json(
+        destination / "reassessment_manifest.json",
+        {
+            "source_case": str(case_dir),
+            "created": stamp,
+            "raw_outputs_reused": True,
+            "dump_files_reused": (destination / "dumps").is_dir(),
+            "integrity_verified": True,
+            "original_runtime_options": runtime,
+            "original_tool_manifest": _read(case_dir / "evidence" / "tool_manifest.json", {}),
+            "current_tool_manifest": current_tool_manifest,
+            **integrity,
+            **yara_integrity,
+        },
+    )
+    for path in outputs:
+        typer.echo(path)
+
+
+@app.command()
+def report(case: Annotated[Path, typer.Option("--case")], format: Annotated[str, typer.Option("--format")] = "html") -> None:
+    normalized_format = _validate_format(format)
+    case_dir = case.resolve()
+    cfg = _mapping(_read(case_dir / "evidence" / "analysis_config.json", {}))
+    analysis_cfg = _mapping(cfg.get("analysis", {})) if cfg else {}
+    _validate_report_configuration(normalized_format, analysis_cfg)
+    try:
+        outputs = ReportGenerator().generate_from_case(case_dir, normalized_format, enable_pdf=bool(analysis_cfg.get("enable_pdf_report", False)))
+    except (OSError, TypeError, ValueError) as exc:
+        raise typer.BadParameter(f"Could not render report from normalized case data: {exc}") from exc
+    for path in outputs:
+        typer.echo(path)
+
+
+def _execute_plan(
+    case_dir: Path,
+    input_file: Path,
+    planned: list[str],
+    runner: VolatilityRunner,
+    cfg: dict[str, Any],
+    resume: bool,
+    worker_count: int,
+    compiled: Path | None,
+    include_dumps: bool,
+) -> list[PluginStatus]:
+    previous = {item.plugin: item for item in [_status(row) for row in _row_list(_read(case_dir / "normalized" / "plugin_status.json", []))]} if resume else {}
+    available = runner.available_plugins() if runner.is_available() else set()
+    raw_dir = case_dir / "raw" / "volatility"
+    timeouts = _mapping(_mapping(cfg.get("execution", {})).get("timeouts", {}))
+
+    def one(plugin: str) -> PluginStatus:
+        prior = previous.get(plugin)
+        raw = raw_dir / f"{plugin}.json"
+        if prior and prior.status in {"success", "cached"} and _cache_output_valid(prior, raw, case_dir):
+            return replace(prior, status="cached", reason="Verified raw output reused.")
+        resolved = resolve_plugin(plugin, available)
+        if not resolved:
+            return PluginStatus(plugin, "unsupported" if available else "skipped", reason="Volatility plugin unavailable.", lane=lane(plugin))
+        args = _runtime_plugin_args(cfg, plugin, compiled)
+        skip_reason = _plugin_skip_reason(plugin, args)
+        if skip_reason:
+            return PluginStatus(plugin, "skipped", resolved_plugin=resolved, reason=skip_reason, lane=lane(plugin))
+        current_lane = lane(plugin)
+        timeout = int(timeouts.get(plugin, timeouts.get("heavy" if current_lane == "heavy" else "standard", 600)))
+        dump = include_dumps and plugin in {"windows.dumpfiles", "windows.dlllist", "windows.memmap"}
+        run = runner.run_plugin(
+            input_file,
+            plugin,
+            raw_dir,
+            plugin_args=args,
+            dump=dump,
+            dump_args=plugin_dump_args_for(cfg, plugin) if dump else None,
+            dump_dir=case_dir / "dumps" / plugin.replace("windows.", "").replace(".", "_"),
+            resolved_plugin=resolved,
+            timeout_seconds=timeout,
+        )
+        return PluginStatus(
+            plugin=plugin,
+            status="success" if run.succeeded else ("timeout" if run.timed_out else "failed"),
+            return_code=run.return_code,
+            output_path=str(run.output_path or ""),
+            error_path=str(run.error_path or ""),
+            dump_files=[str(path) for path in run.dump_files],
+            resolved_plugin=resolved,
+            reason="" if run.succeeded else "Inspect saved error output.",
+            command=run.command,
+            started_at=run.started_at,
+            finished_at=run.finished_at,
+            duration_seconds=run.duration_seconds,
+            stdout_sha256=run.stdout_sha256,
+            error_sha256=run.error_sha256,
+            dump_hashes=run.dump_hashes,
+            lane=current_lane,
+            timeout_seconds=timeout,
+        )
+
+    if not runner.is_available():
+        return [PluginStatus(plugin, "skipped", reason="Volatility command unavailable", lane=lane(plugin)) for plugin in planned]
+    bootstrap = [plugin for plugin in planned if plugin == "windows.info"]
+    remaining = [plugin for plugin in planned if plugin not in bootstrap]
+    completed = [(plugin, one(plugin)) for plugin in bootstrap] + run_jobs(remaining, worker_count, one)
+    return [status for _, status in completed]
+
+
+def _run_malfind_dumps(case_dir: Path, input_file: Path, runner: VolatilityRunner, cfg: dict[str, Any], pids: list[int], mode: str) -> list[PluginStatus]:
+    available = runner.available_plugins()
+    resolved = resolve_plugin("windows.malfind", available)
+    if not resolved:
+        return []
+    timeout = int(_mapping(_mapping(cfg.get("execution", {})).get("timeouts", {})).get("dump", 3600))
+    raw = case_dir / "raw" / "volatility"
+    dump_dir = case_dir / "dumps" / "suspicious_memory"
+    statuses: list[PluginStatus] = []
+    jobs = [("windows.malfind.dumpall", [])] if mode == "all" else [(f"windows.malfind.targeted.{pid}", ["--pid", str(pid)]) for pid in pids]
+    for identifier, args in jobs:
+        run = runner.run_plugin(input_file, "windows.malfind", raw, plugin_args=args, dump=True, dump_args=["--dump"], dump_dir=dump_dir, resolved_plugin=resolved, timeout_seconds=timeout, output_id=identifier)
+        statuses.append(
+            PluginStatus(
+                plugin=identifier,
+                status="success" if run.succeeded else ("timeout" if run.timed_out else "failed"),
+                return_code=run.return_code,
+                output_path=str(run.output_path or ""),
+                error_path=str(run.error_path or ""),
+                dump_files=[str(path) for path in run.dump_files],
+                resolved_plugin=resolved,
+                reason="" if run.succeeded else "Targeted malfind dump did not complete.",
+                command=run.command,
+                started_at=run.started_at,
+                finished_at=run.finished_at,
+                duration_seconds=run.duration_seconds,
+                stdout_sha256=run.stdout_sha256,
+                error_sha256=run.error_sha256,
+                dump_hashes=run.dump_hashes,
+                lane="heavy",
+                timeout_seconds=timeout,
+            )
+        )
+    return statuses
+
+
+def _rule_paths(external: Path | None, include_builtin: bool) -> list[Path]:
+    paths = [_builtin_yara_rules_dir()] if include_builtin else []
+    if external is not None:
+        paths.append(external.resolve())
+    return paths
+
+
+def _config_hash(cfg: dict[str, Any], runtime: dict[str, Any]) -> str:
+    payload = json.dumps({"config": cfg, "runtime": runtime}, sort_keys=True, separators=(",", ":"), default=str).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _sha256_path(path: Path) -> str:
+    if not path.is_file():
+        return ""
+    return _sha256(path)
+
+
+def _read(path: Path, default: Any) -> Any:
+    return read_json(path) if path.exists() else default
+
+
+def _status(row: dict[str, Any]) -> PluginStatus:
+    return PluginStatus(
+        plugin=str(row.get("plugin", "")),
+        status=str(row.get("status", "unassessed")),
+        return_code=_optional_int(row.get("return_code")),
+        output_path=str(row.get("output_path", "")),
+        error_path=str(row.get("error_path", "")),
+        dump_files=[str(value) for value in row.get("dump_files", [])] if isinstance(row.get("dump_files"), list) else [],
+        resolved_plugin=str(row.get("resolved_plugin", "")),
+        reason=str(row.get("reason", "")),
+        command=[str(value) for value in row.get("command", [])] if isinstance(row.get("command"), list) else [],
+        started_at=str(row.get("started_at", "")),
+        finished_at=str(row.get("finished_at", "")),
+        duration_seconds=float(row.get("duration_seconds", 0.0)),
+        stdout_sha256=str(row.get("stdout_sha256", "")),
+        error_sha256=str(row.get("error_sha256", "")),
+        dump_hashes={str(key): str(value) for key, value in _mapping(row.get("dump_hashes", {})).items()},
+        lane=str(row.get("lane", "")),
+        timeout_seconds=int(row.get("timeout_seconds", 0)),
+        analysis_status=str(row.get("analysis_status", "unassessed")),
+    )
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as file_obj:
+        for chunk in iter(lambda: file_obj.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _builtin_yara_rules_dir() -> Path:
+    return Path(__file__).resolve().parent / "rules"
+
+
+def _config_sha256(config: dict[str, Any], runtime: dict[str, Any]) -> str:
+    return _config_hash(config, runtime)
+
+
+def _cache_output_valid(status: PluginStatus, raw_path: Path, case_dir: Path | None = None) -> bool:
+    if not raw_path.is_file() or not status.stdout_sha256:
+        return False
+    if _sha256(raw_path) != status.stdout_sha256:
+        return False
+    if status.dump_files and not status.dump_hashes:
+        return False
+    for path, expected in status.dump_hashes.items():
+        target = _case_dump_path(case_dir, Path(path)) if case_dir is not None else Path(path)
+        if not expected or target is None or not target.is_file() or _sha256(target) != expected:
+            return False
+    return True
+
+
+def _case_dump_path(case_dir: Path | None, recorded: Path) -> Path | None:
+    if case_dir is None:
+        return recorded
+    root = (case_dir / "dumps").resolve()
+    if recorded.is_file():
+        try:
+            resolved = recorded.resolve()
+            if root == resolved or root in resolved.parents:
+                return recorded
+        except OSError:
+            pass
+    matches = [path for path in root.rglob(recorded.name) if path.is_file()] if root.is_dir() else []
+    return matches[0] if len(matches) == 1 else None
+
+
+def _verify_case_artifacts(case_dir: Path, statuses: list[PluginStatus], metadata: dict[str, Any]) -> dict[str, Any]:
+    if not metadata.get("sha256") or not metadata.get("file_size_bytes"):
+        raise ValueError("evidence metadata is missing its SHA256 or size")
+    if not statuses:
+        raise ValueError("plugin status ledger is missing or empty")
+    evidence_path = Path(str(metadata.get("input_file", "")))
+    evidence_verified = False
+    if evidence_path.is_file():
+        current = hash_file(evidence_path)
+        if current.sha256 != str(metadata["sha256"]) or evidence_path.stat().st_size != int(metadata["file_size_bytes"]):
+            raise ValueError("source evidence changed after case creation")
+        evidence_verified = True
+    raw_dir = case_dir / "raw" / "volatility"
+    verified_raw = 0
+    verified_dumps = 0
+    for status in statuses:
+        if status.status not in {"success", "cached"}:
+            continue
+        name = Path(status.output_path).name if status.output_path else f"{status.plugin}.json"
+        raw_path = raw_dir / name
+        if not _cache_output_valid(status, raw_path, case_dir):
+            raise ValueError(f"hash mismatch or missing hash for {status.plugin}")
+        verified_raw += 1
+        verified_dumps += len(status.dump_hashes)
+    return {"verified_raw_outputs": verified_raw, "verified_dump_files": verified_dumps, "source_evidence_verified": evidence_verified, "hash_algorithm": "sha256"}
+
+
+def _runtime_plugin_args(cfg: dict[str, Any], plugin: str, yara_source: Path | list[Path] | None) -> list[str]:
+    args = plugin_args_for(cfg, plugin)
+    if plugin == "windows.vadyarascan" and not any(item.startswith("--yara-") for item in args):
+        candidates = [yara_source] if isinstance(yara_source, Path) else list(yara_source or [])
+        for candidate in candidates:
+            if candidate.is_file() and candidate.suffix.casefold() == ".yarac":
+                return args + ["--yara-compiled-file", str(candidate)]
+            if candidate.is_file() and candidate.suffix.casefold() in {".yar", ".yara"}:
+                return args + ["--yara-file", str(candidate)]
+            if candidate.is_dir():
+                rule = next(iter(_enumerate_rule_files([candidate])), None)
+                if rule:
+                    return args + ["--yara-file", str(rule)]
+    return args
+
+
+def _plugin_skip_reason(plugin: str, args: list[str]) -> str:
+    if plugin == "windows.vadyarascan" and not any(item.startswith("--yara-") for item in args):
+        return "windows.vadyarascan requires an enabled YARA source."
+    return ""
+
+
+def _should_capture_dump(plugin: str, no_malfind_dump: bool, include_dump_artifacts: bool) -> bool:
+    if plugin == "windows.malfind":
+        return not no_malfind_dump
+    return include_dump_artifacts and plugin in {"windows.dumpfiles", "windows.dlllist", "windows.memmap"}
+
+
+def _external_tool_settings(cfg: dict[str, Any], no_floss: bool, no_capa: bool, no_clamav: bool, no_die: bool, no_pefile: bool) -> dict[str, Any]:
+    configured = _mapping(_mapping(cfg.get("analysis", {})).get("external_tools", {}))
+    return {
+        "enable_floss": bool(configured.get("enable_floss", True)) and not no_floss,
+        "enable_capa": bool(configured.get("enable_capa", True)) and not no_capa,
+        "enable_clamav": bool(configured.get("enable_clamav", True)) and not no_clamav,
+        "enable_die": bool(configured.get("enable_die", True)) and not no_die,
+        "enable_pefile": bool(configured.get("enable_pefile", True)) and not no_pefile,
+        "capa_rules": str(configured.get("capa_rules", "")),
+        "timeout_seconds": int(configured.get("timeout_seconds", 120)),
+        "max_file_size_mb": int(configured.get("max_file_size_mb", 100)),
+        "max_output_mb": int(configured.get("max_output_mb", 32)),
+    }
+
+
+def _dedupe_findings(findings: list[Finding]) -> list[Finding]:
+    merged: dict[tuple[str, int | None, str, str], Finding] = {}
+    for finding in findings:
+        key = (finding.process_key, finding.pid, finding.category, finding.title)
+        existing = merged.get(key)
+        if existing is None:
+            merged[key] = finding
+            continue
+        existing.score = max(existing.score, finding.score)
+        order = {"unverified": 0, "low": 1, "possible": 2, "likely": 3, "high": 4, "corroborated": 5}
+        if order.get(finding.confidence, 0) > order.get(existing.confidence, 0):
+            existing.confidence = finding.confidence
+        existing.occurrence_count += finding.occurrence_count
+        existing.evidence.extend(item for item in finding.evidence if item not in existing.evidence)
+        existing.provenance_ids = sorted(set(existing.provenance_ids + finding.provenance_ids))
+    return list(merged.values())
+
+
+def _validate_format(value: str) -> str:
+    normalized = value.casefold()
+    if normalized not in VALID_FORMATS:
+        raise typer.BadParameter("--format must be md, markdown, html, pdf, or all")
+    return normalized
+
+
+def _validate_report_configuration(output_format: str, analysis_cfg: dict[str, Any]) -> None:
+    if output_format in {"html", "all"} and not bool(analysis_cfg.get("enable_html_report", True)):
+        raise typer.BadParameter("HTML reporting is disabled by the effective configuration.")
+    if output_format in {"pdf", "all"} and not bool(analysis_cfg.get("enable_pdf_report", False)):
+        raise typer.BadParameter("PDF reporting is disabled by the effective configuration.")
+
+
+def _enumerate_rule_files(paths: list[Path]) -> list[Path]:
+    files: list[Path] = []
+    for path in paths:
+        if path.is_file() and path.suffix.casefold() in {".yar", ".yara", ".yarac"}:
+            files.append(path.resolve())
+        elif path.is_dir():
+            files.extend(candidate.resolve() for candidate in path.rglob("*") if candidate.is_file() and candidate.suffix.casefold() in {".yar", ".yara", ".yarac"})
+    return sorted(dict.fromkeys(files))
+
+
+def _rule_inventory(paths: list[Path]) -> list[dict[str, Any]]:
+    return [{"path": str(path), "sha256": _sha256(path), "size": path.stat().st_size} for path in _enumerate_rule_files(paths)]
+
+
+def _snapshot_yara_rules(case_dir: Path, paths: list[Path], enabled: bool) -> tuple[list[Path], dict[str, Any]]:
+    manifest: dict[str, Any] = {"enabled": enabled, "files": [], "compile_status": {}}
+    if not enabled:
+        return [], manifest
+    destination = case_dir / "evidence" / "yara_rules"
+    destination.mkdir(parents=True, exist_ok=True)
+    snapshots: list[Path] = []
+    builtin_root = _builtin_yara_rules_dir().resolve()
+    for source in _enumerate_rule_files(paths):
+        digest = _sha256(source)
+        target = destination / f"{digest[:12]}_{source.name}"
+        shutil.copy2(source, target)
+        snapshots.append(target)
+        manifest["files"].append(
+            {
+                "original_path": str(source),
+                "snapshot_path": str(target.relative_to(case_dir)),
+                "sha256": digest,
+                "size": source.stat().st_size,
+                "built_in": builtin_root == source.parent or builtin_root in source.parents,
+                "compiled": source.suffix.casefold() == ".yarac",
+            }
+        )
+    return snapshots, manifest
+
+
+def _manifest_rule_paths(case_dir: Path, manifest_value: Any) -> list[Path]:
+    manifest = _mapping(manifest_value)
+    files = manifest.get("files", [])
+    result: list[Path] = []
+    if isinstance(files, list):
+        for row in files:
+            if not isinstance(row, dict):
+                continue
+            path = case_dir / str(row.get("snapshot_path", ""))
+            if path.is_file():
+                result.append(path)
+    return result
+
+
+def _verify_yara_manifest(case_dir: Path, manifest_value: Any) -> dict[str, Any]:
+    manifest = _mapping(manifest_value)
+    if not bool(manifest.get("enabled", False)):
+        return {"verified_yara_rules": 0, "yara_enabled": False}
+    paths = _manifest_rule_paths(case_dir, manifest)
+    expected_rows = [row for row in manifest.get("files", []) if isinstance(row, dict)] if isinstance(manifest.get("files"), list) else []
+    if len(paths) != len(expected_rows):
+        raise ValueError("one or more snapshotted YARA rules are missing")
+    for path, row in zip(paths, expected_rows, strict=True):
+        if _sha256(path) != str(row.get("sha256", "")):
+            raise ValueError(f"YARA rule hash mismatch: {path.name}")
+    return {"verified_yara_rules": len(paths), "yara_enabled": True}
+
+
+def _collect_tool_manifest(volatility_command: str, runner: VolatilityRunner, external_settings: dict[str, Any]) -> dict[str, Any]:
+    tools: list[dict[str, Any]] = []
+    vol_path = shutil.which(volatility_command) or volatility_command
+    tools.append(_tool_entry("volatility3", vol_path, runner.version_text(), runner.is_available(), True))
+    optional = {
+        "floss": ("floss", bool(external_settings.get("enable_floss", False))),
+        "capa": ("capa", bool(external_settings.get("enable_capa", False))),
+        "clamav": ("clamscan", bool(external_settings.get("enable_clamav", False))),
+        "detect-it-easy": ("diec", bool(external_settings.get("enable_die", False))),
+    }
+    for name, (command, enabled) in optional.items():
+        path = shutil.which(command) or ""
+        tools.append(_tool_entry(name, path, _command_version(path) if path else "unavailable", bool(path), enabled))
+    for package, enabled in (("pefile", bool(external_settings.get("enable_pefile", False))), ("yara-python", True)):
+        try:
+            version = importlib.metadata.version(package)
+            available = True
+        except importlib.metadata.PackageNotFoundError:
+            version = "unavailable"
+            available = False
+        tools.append({"tool": package, "enabled": enabled, "available": available, "version": version, "binary_path": "", "sha256": ""})
+    return {"captured_at": datetime.now(timezone.utc).isoformat(), "tools": tools}
+
+
+def _tool_entry(name: str, path_value: str, version: str, available: bool, enabled: bool) -> dict[str, Any]:
+    path = Path(path_value) if path_value else None
+    return {
+        "tool": name,
+        "enabled": enabled,
+        "available": available,
+        "version": version,
+        "binary_path": path_value,
+        "sha256": _sha256(path) if path is not None and path.is_file() else "",
+    }
+
+
+def _command_version(path: str) -> str:
+    try:
+        completed = subprocess.run([path, "--version"], capture_output=True, text=True, timeout=10, check=False)
+    except (OSError, subprocess.SubprocessError):
+        return "version unavailable"
+    value = (completed.stdout or completed.stderr or "").strip().splitlines()
+    return value[0][:300] if value else f"return_code={completed.returncode}"
+
+
+def _runner_from_config(cfg: dict[str, Any]) -> VolatilityRunner:
+    vol = _mapping(cfg.get("volatility", {}))
+    builder = VolatilityCommandBuilder(str(vol.get("command", "vol")), str(vol.get("renderer", "json")), bool(vol.get("quiet", True)))
+    return VolatilityRunner(builder, int(vol.get("timeout_seconds", 600)))
+
+
+def _mapping(value: Any) -> dict[str, Any]:
+    return value if isinstance(value, dict) else {}
+
+
+def _row_list(value: Any) -> list[dict[str, Any]]:
+    return [item for item in value if isinstance(item, dict)] if isinstance(value, list) else []
+
+
+def _optional_int(value: Any) -> int | None:
+    if value in (None, ""):
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _normalize_and_analyze(
+    case_dir: Path,
+    dump_files: list[str],
+    statuses: list[PluginStatus],
+    *,
+    external_tools: dict[str, Any] | None = None,
+):
+    """Compatibility wrapper for integrations that previously invoked normalization directly."""
+    del dump_files
+    return analyze_case(case_dir, statuses, load_config(), external_tools=external_tools or {})
+
