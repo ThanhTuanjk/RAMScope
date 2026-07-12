@@ -588,7 +588,9 @@ def _dedupe_findings(findings: list[Finding]) -> list[Finding]:
 def _validate_format(value: str) -> str:
     normalized = value.casefold()
     if normalized not in VALID_FORMATS:
-        raise typer.BadParameter("--format must be md, markdown, html, pdf, or all")
+        # Keep the actionable message visible across Typer stderr behavior.
+        typer.echo("--format must be md, markdown, html, pdf, or all")
+        raise typer.Exit(code=2)
     return normalized
 
 
