@@ -295,4 +295,439 @@ def _correlate(parsed: dict[str, list[Any]]) -> tuple[list[ProcessProfile], list
         offset = text(row.get("eprocess_offset") if is_mapping else getattr(row, "eprocess_offset", ""))
         profile = resolve(pid, name, offset)
         if profile is None:
-            unresolved.append({"artifact": kind, "pid": pid, "process_name": name, "reason": "No unique EPROCESS or PID/create-time identiãÞ|¶‰žËkºwµçA™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}¹…µ”°™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}­•ä€ôÁÉ½™¥±”¹Á¥°ÁÉ½™¥±”¹¹…µ”°ÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•ä(€€€€€€€€€€€¥˜¥Í}Í•ÕÉ¥Ñå}½É}©¥Ñ}ÁÉ½•ÍÌ¡ÁÉ½™¥±”¹¹…µ”¤è(€€€€€€€€€€€€€€€™¥¹‘¥¹œ¹ÍÕÁÁÉ•ÍÍ•‘}É•…Í½¸€ô€‰M¥¹…ÑÕÉ”µ…Ñ ‰•±½¹ÌÑ¼„Í•ÕÉ¥Ñä½)%Pµ¡•…ÙäÁÉ½•ÍÌ…¹¹••‘ÌÍÑÉ½¹•È½ÉÉ½‰½É…Ñ¥½¸¸ˆ(€€€ÝÉ¥Ñ•}©Í½¸¡…Í•}‘¥È€¼€‰¹½Éµ…±¥é•ˆ€¼€‰å…É„ˆ€¼€‰Í…¹}ÍÑ…ÑÕÌ¹©Í½¸ˆ°Í…¹¹•È¹±…ÍÑ}ÍÑ…ÑÕÌ¤(€€€É•ÑÕÉ¸™¥¹‘¥¹Ì(()‘•˜}Í…¹}•áÑ•É¹…±}Ñ½½±Ì¡…Í•}‘¥ÈèA…Ñ °Í•ÑÑ¥¹Ìè‘¥ÑmÍÑÈ°¹åt°ÁÉ½™¥±•Ìè±¥ÍÑmAÉ½•ÍÍAÉ½™¥±•t¤€´ø±¥ÍÑm¥¹‘¥¹tè(€€€ÑÉäè(€€€€€€€™¥¹‘¥¹Ì°ÍÑ…ÑÕÌ°|€ôáÑ•É¹…±Q½½±¹…±åé•È ¨©Í•ÑÑ¥¹Ì¤¹…¹…±åé”¡…Í•}‘¥È€¼€‰‘ÕµÁÌˆ€¼€‰ÍÕÍÁ¥¥½ÕÍ}µ•µ½Éäˆ°…Í•}‘¥È€¼€‰¹½Éµ…±¥é•ˆ€¼€‰•áÑ•É¹…±}Ñ½½±Ìˆ¤(€€€•á•ÁÐá•ÁÑ¥½¸…Ì•áŒè€€Œ¹½Å„è	1ÀÀÄ€´•áÑ•É¹…°Ñ½½±ÌµÕÍÐ¹½ÐÍÑ½À™½É•¹Í¥Œ½±±•Ñ¥½¸¸(€€€€€€€ÝÉ¥Ñ•}©Í½¸¡…Í•}‘¥È€¼€‰¹½Éµ…±¥é•ˆ€¼€‰•áÑ•É¹…±}Ñ½½±Ìˆ€¼€‰ÍÑ…ÑÕÌ¹©Í½¸ˆ°mì‰Ñ½½°ˆè€‰•áÑ•É¹…°µÑ½½±Ìˆ°€‰ÍÑ…ÑÕÌˆè€‰•ÉÉ½Èˆ°€‰‘•Ñ…¥°ˆè˜‰íÑåÁ”¡•áŒ¤¹}}¹…µ•}}ôèí•áô‰õt¤(€€€€€€€É•ÑÕÉ¸mt(€€€ÝÉ¥Ñ•}©Í½¸¡…Í•}‘¥È€¼€‰¹½Éµ…±¥é•ˆ€¼€‰•áÑ•É¹…±}Ñ½½±}ÍÑ…ÑÕÌ¹©Í½¸ˆ°ÍÑ…ÑÕÌ¤(€€€‰å}Á¥è‘¥Ñm¥¹Ð°±¥ÍÑmAÉ½•ÍÍAÉ½™¥±•ut€ôíô(€€€™½ÈÁÉ½™¥±”¥¸ÁÉ½™¥±•Ìè(€€€€€€€‰å}Á¥¹Í•Ñ‘•™…Õ±Ð¡ÁÉ½™¥±”¹Á¥°mt¤¹…ÁÁ•¹¡ÁÉ½™¥±”¤(€€€™½È™¥¹‘¥¹œ¥¸™¥¹‘¥¹Ìè(€€€€€€€™¥¹‘¥¹œ¹Í•Ù•É¥Ñä°™¥¹‘¥¹œ¹Í½É”°™¥¹‘¥¹œ¹½¹™¥‘•¹”°™¥¹‘¥¹œ¹‘¥ÍÁ½Í¥Ñ¥½¸€ô€‰1½Üˆ°µ¥¸ ÄÔ°™¥¹‘¥¹œ¹Í½É”¤°€‰Õ¹Ù•É¥™¥•ˆ°€‰±•…ˆ(€€€€€€€™¥¹‘¥¹œ¹…Ñ•½Éä€ô€‰Í¥¹…ÑÕÉ”ˆ(€€€€€€€™¥¹‘¥¹œ¹Í¥¹…±}É½ÕÁÌ€ôl‰Í¥¹…ÑÕÉ”‰t(€€€€€€€‘•Ñ…¥°€ô€ˆ€ˆ¹©½¥¸¡¥Ñ•´¹•Ð ‰‘•Ñ…¥°ˆ°€ˆˆ¤™½È¥Ñ•´¥¸™¥¹‘¥¹œ¹•Ù¥‘•¹”¤(€€€€€€€‘ÕµÁ}¡…Í €ô}¡…Í¡}™É½µ}•áÑ•É¹…±}‘•Ñ…¥°¡‘•Ñ…¥°°ÍÑ…ÑÕÌ¤(€€€€€€€™¥¹‘¥¹œ¹ÁÉ½Ù•¹…¹•}¥‘Ì€ôm˜‰‘ÕµÀéí‘ÕµÁ}¡…Í¡ô‰t¥˜‘ÕµÁ}¡…Í •±Í”mt(€€€€€€€µ…Ñ €ôÉ”¹Í•…É ¡È‰Á¥‘l¹|èô€µt¬¡q¬¤ˆ°‘•Ñ…¥°°É”¹%9=IM¤(€€€€€€€¥˜µ…Ñ …¹±•¸¡‰å}Á¥¹•Ð¡¥¹Ð¡µ…Ñ ¹É½ÕÀ Ä¤¤°mt¤¤€ôô€Äè(€€€€€€€€€€€ÁÉ½™¥±”€ô‰å}Á¥‘m¥¹Ð¡µ…Ñ ¹É½ÕÀ Ä¤¥ulÁt(€€€€€€€€€€€™¥¹‘¥¹œ¹Á¥°™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}¹…µ”°™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}­•ä€ôÁÉ½™¥±”¹Á¥°ÁÉ½™¥±”¹¹…µ”°ÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•ä(€€€€€€€€€€€¥˜¥Í}Í•ÕÉ¥Ñå}½É}©¥Ñ}ÁÉ½•ÍÌ¡ÁÉ½™¥±”¹¹…µ”¤è(€€€€€€€€€€€€€€€™¥¹‘¥¹œ¹ÍÕÁÁÉ•ÍÍ•‘}É•…Í½¸€ô€‰áÑ•É¹…°µÑ½½°Í¥¹…°‰•±½¹ÌÑ¼„Í•ÕÉ¥Ñä½)%Pµ¡•…ÙäÁÉ½•ÍÌ…¹¹••‘ÌÍÑÉ½¹•È½ÉÉ½‰½É…Ñ¥½¸¸ˆ(€€€É•ÑÕÉ¸™¥¹‘¥¹Ì(()‘•˜}…ÑÑ…¡}Ý¥Ñ¡½ÕÑ}Í½É¥¹œ¡ÁÉ½™¥±•Ìè±¥ÍÑmAÉ½•ÍÍAÉ½™¥±•t°™¥¹‘¥¹Ìè±¥ÍÑm¥¹‘¥¹t¤€´ø9½¹”è(€€€™¥¹‘¥¹Ílét€ô}‘•‘ÕÁ•}™¥¹‘¥¹Ì¡™¥¹‘¥¹Ì¤(€€€‰å}­•ä€ôíÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•äèÁÉ½™¥±”™½ÈÁÉ½™¥±”¥¸ÁÉ½™¥±•Íô(€€€™½ÈÁÉ½™¥±”¥¸ÁÉ½™¥±•Ìè(€€€€€€€ÁÉ½™¥±”¹™¥¹‘¥¹Ì€ômt(€€€€€€€ÁÉ½™¥±”¹É¥Í­}Í½É”€ô€À(€€€€€€€ÁÉ½™¥±”¹Í•Ù•É¥Ñä€ô€‰%¹™¼ˆ(€€€€€€€ÁÉ½™¥±”¹Í½É•}É•…Í½¹Ì€ômt(€€€™½È™¥¹‘¥¹œ¥¸™¥¹‘¥¹Ìè(€€€€€€€…ÑÑ…¡•‘}ÁÉ½™¥±”€ô‰å}­•ä¹•Ð¡™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}­•ä¤(€€€€€€€¥˜…ÑÑ…¡•‘}ÁÉ½™¥±”¥Ì¹½Ð9½¹”è(€€€€€€€€€€€…ÑÑ…¡•‘}ÁÉ½™¥±”¹™¥¹‘¥¹Ì¹…ÁÁ•¹¡™¥¹‘¥¹œ¤(()‘•˜}…ÑÑ…¡}…¹‘}Í½É”¡ÁÉ½™¥±•Ìè±¥ÍÑmAÉ½•ÍÍAÉ½™¥±•t°™¥¹‘¥¹Ìè±¥ÍÑm¥¹‘¥¹t°™œè‘¥ÑmÍÑÈ°¹åtð9½¹”€ô9½¹”¤€´ø9½¹”è(€€€™¥¹‘¥¹Ílét€ô}‘•‘ÕÁ•}™¥¹‘¥¹Ì¡™¥¹‘¥¹Ì¤(€€€‰å}­•ä€ôíÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•äèÁÉ½™¥±”™½ÈÁÉ½™¥±”¥¸ÁÉ½™¥±•Íô(€€€™½ÈÁÉ½™¥±”¥¸ÁÉ½™¥±•Ìè(€€€€€€€ÁÉ½™¥±”¹™¥¹‘¥¹Ì€ômt(€€€™½È™¥¹‘¥¹œ¥¸™¥¹‘¥¹Ìè(€€€€€€€…ÑÑ…¡•‘}ÁÉ½™¥±”€ô‰å}­•ä¹•Ð¡™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}­•ä¤(€€€€€€€¥˜…ÑÑ…¡•‘}ÁÉ½™¥±”¥Ì¹½Ð9½¹”è(€€€€€€€€€€€…ÑÑ…¡•‘}ÁÉ½™¥±”¹™¥¹‘¥¹Ì¹…ÁÁ•¹¡™¥¹‘¥¹œ¤((€€€½ÉÉ•±…Ñ¥½¹}™¥¹‘¥¹Ìè±¥ÍÑm¥¹‘¥¹t€ômt(€€€™½ÈÁÉ½™¥±”¥¸ÁÉ½™¥±•Ìè(€€€€€€€…Ñ¥Ù”€ôm¥Ñ•´™½È¥Ñ•´¥¸ÁÉ½™¥±”¹™¥¹‘¥¹Ì¥˜¥Ñ•´¹‘¥ÍÁ½Í¥Ñ¥½¸€ôô€‰±•…ˆ…¹¹½Ð¥Ñ•´¹ÍÕÁÁÉ•ÍÍ•‘}É•…Í½¹t(€€€€€€€É½ÕÁ}ÁÉ½Ù•¹…¹”è‘¥ÑmÍÑÈ°Í•ÑmÍÑÉut€ôíô(€€€€€€€™½È¥Ñ•´¥¸…Ñ¥Ù”è(€€€€€€€€€€€ÁÉ½Ù•¹…¹•Ì€ôÍ•Ð¡¥Ñ•´¹ÁÉ½Ù•¹…¹•}¥‘Ì¤½Èí˜‰™¥¹‘¥¹œéí¥Ñ•´¹…Ñ•½Éåôéí¥Ñ•´¹Ñ¥Ñ±•ô‰ô(€€€€€€€€€€€™½ÈÉ½ÕÀ¥¸¥Ñ•´¹Í¥¹…±}É½ÕÁÌè(€€€€€€€€€€€€€€€É½ÕÁ}ÁÉ½Ù•¹…¹”¹Í•Ñ‘•™…Õ±Ð¡É½ÕÀ°Í•Ð ¤¤¹ÕÁ‘…Ñ”¡ÁÉ½Ù•¹…¹•Ì¤(€€€€€€€É½ÕÁÌ€ôÍ•Ð¡É½ÕÁ}ÁÉ½Ù•¹…¹”¤(€€€€€€€¥¹‘•Á•¹‘•¹Ð€ôÍ•Ð ¤¹Õ¹¥½¸ ©É½ÕÁ}ÁÉ½Ù•¹…¹”¹Ù…±Õ•Ì ¤¤¥˜É½ÕÁ}ÁÉ½Ù•¹…¹”•±Í”Í•Ð ¤(€€€€€€€¡…Í}ÍÑÉ½¹œ€ô‰½½°¡É½ÕÁÌ¹¥¹Ñ•ÉÍ•Ñ¥½¸¡ì‰µ•µ½Éäˆ°€‰Í¥¹…ÑÕÉ”ˆ°€‰Ñ¡É•…‰ô¤¤(€€€€€€€Í•Ù•É¥Ñä€ô€ˆˆ(€€€€€€€¥˜±•¸¡É½ÕÁÌ¤€øô€Ì…¹±•¸¡¥¹‘•Á•¹‘•¹Ð¤€øô€Ì…¹¡…Í}ÍÑÉ½¹œ…¹É½ÕÁÌ¹¥¹Ñ•ÉÍ•Ñ¥½¸¡ì‰¹•ÑÝ½É¬ˆ°€‰Á•ÉÍ¥ÍÑ•¹”‰ô¤è(€€€€€€€€€€€Í•Ù•É¥Ñä€ô€‰É¥Ñ¥…°ˆ(€€€€€€€•±¥˜±•¸¡É½ÕÁÌ¤€øô€È…¹±•¸¡¥¹‘•Á•¹‘•¹Ð¤€øô€È…¹¡…Í}ÍÑÉ½¹œè(€€€€€€€€€€€Í•Ù•É¥Ñä€ô€‰!¥ ˆ(€€€€€€€¥˜Í•Ù•É¥Ñäè(€€€€€€€€€€€½ÉÉ•±…Ñ¥½¸€ô}™¥¹‘¥¹œ (€€€€€€€€€€€€€€€ÁÉ½™¥±”°(€€€€€€€€€€€€€€€€‰5Õ±Ñ¥Á±”¥¹‘•Á•¹‘•¹ÐÍÕÍÁ¥¥½ÕÌ¥¹‘¥…Ñ½ÉÌÉ•ÅÕ¥É”ÁÉ¥½É¥ÑäÉ•Ù¥•Üˆ°(€€€€€€€€€€€€€€€Í•Ù•É¥Ñä°(€€€€€€€€€€€€€€€€ÌÀ¥˜Í•Ù•É¥Ñä€ôô€‰!¥ ˆ•±Í”€ÐÔ°(€€€€€€€€€€€€€€€€‰½ÉÉ•±…Ñ¥½¸ˆ°(€€€€€€€€€€€€€€€€‰½ÉÉ•±…Ñ¥½¸ˆ°(€€€€€€€€€€€€€€€€‰½ÉÉ½‰½É…Ñ•ˆ°(€€€€€€€€€€€€€€€˜‰Í¥¹…±}É½ÕÁÌõíÍ½ÉÑ•¡É½ÕÁÌ¥ôì¥¹‘•Á•¹‘•¹Ñ}ÁÉ½Ù•¹…¹”õí±•¸¡¥¹‘•Á•¹‘•¹Ð¥ôˆ°(€€€€€€€€€€€€€€€˜‰½ÉÉ•±…Ñ¥½¸éíÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•åôéìðœ¹©½¥¸¡Í½ÉÑ•¡¥¹‘•Á•¹‘•¹Ð¤¥ôˆ°(€€€€€€€€€€€€¤(€€€€€€€€€€€½ÉÉ•±…Ñ¥½¸¹½¹™¥‘•¹”€ô€‰½ÉÉ½‰½É…Ñ•ˆ(€€€€€€€€€€€½ÉÉ•±…Ñ¥½¸¹Í¥¹…±}É½ÕÁÌ€ôÍ½ÉÑ•¡É½ÕÁÌ¤(€€€€€€€€€€€½ÉÉ•±…Ñ¥½¸¹ÁÉ½Ù•¹…¹•}¥‘Ì€ôÍ½ÉÑ•¡¥¹‘•Á•¹‘•¹Ð¤(€€€€€€€€€€€ÁÉ½™¥±”¹™¥¹‘¥¹Ì¹…ÁÁ•¹¡½ÉÉ•±…Ñ¥½¸¤(€€€€€€€€€€€½ÉÉ•±…Ñ¥½¹}™¥¹‘¥¹Ì¹…ÁÁ•¹¡½ÉÉ•±…Ñ¥½¸¤((€€€€€€€…Ñ•½Éå}Ñ½Ñ…±Ìè‘¥ÑmÍÑÈ°¥¹Ñt€ôíô(€€€€€€€½¹™¥ÕÉ•‘}…ÁÌ€ô€¡™œ½Èíô¤¹•Ð ‰É¥Í­}…Ñ•½Éå}…ÁÌˆ°íô¤(€€€€€€€…Ñ•½Éå}…ÁÌ€ôì(€€€€€€€€€€€€‰µ•µ½Éäˆè€ÐÀ°(€€€€€€€€€€€€‰Ñ¡É•…ˆè€ÌÀ°(€€€€€€€€€€€€‰Í¥¹…ÑÕÉ”ˆè€ÈÔ°(€€€€€€€€€€€€‰¹•ÑÝ½É¬ˆè€ÈÀ°(€€€€€€€€€€€€‰Á•ÉÍ¥ÍÑ•¹”ˆè€ÈÔ°(€€€€€€€€€€€€‰µ½‘Õ±”ˆè€ÈÀ°(€€€€€€€€€€€€‰ÁÉ½•ÍÌˆè€ÈÔ°(€€€€€€€€€€€€‰•á•ÕÑ¥½¸ˆè€ÈÔ°(€€€€€€€€€€€€‰½ÉÉ•±…Ñ¥½¸ˆè€ÐÔ°(€€€€€€€€€€€€¨©íÍÑÈ¡­•ä¤è¥¹Ð¡Ù…±Õ”¤™½È­•ä°Ù…±Õ”¥¸½¹™¥ÕÉ•‘}…ÁÌ¹¥Ñ•µÌ ¥ô°(€€€€€€€ô(€€€€€€€Ý•¥¡ÑÌ€ô€¡™œ½Èíô¤¹•Ð ‰É¥Í­}Ý•¥¡ÑÌˆ°íô¤(€€€€€€€™½È¥Ñ•´¥¸ÁÉ½™¥±”¹™¥¹‘¥¹Ìè(€€€€€€€€€€€¥˜¥Ñ•´¹‘¥ÍÁ½Í¥Ñ¥½¸€ôô€‰½‰Í•ÉÙ•ˆ½È¥Ñ•´¹ÍÕÁÁÉ•ÍÍ•‘}É•…Í½¸è(€€€€€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€€€€€Ý•¥¡Ñ•€ôÉ½Õ¹¡¥Ñ•´¹Í½É”€¨™±½…Ð¡Ý•¥¡ÑÌ¹•Ð¡¥Ñ•´¹…Ñ•½Éä°€Ä¸À¤¤¤(€€€€€€€€€€€…Ñ•½Éå}Ñ½Ñ…±Ím¥Ñ•´¹…Ñ•½Éåt€ôµ¥¸¡…Ñ•½Éå}…ÁÌ¹•Ð¡¥Ñ•´¹…Ñ•½Éä°€ÈÀ¤°…Ñ•½Éå}Ñ½Ñ…±Ì¹•Ð¡¥Ñ•´¹…Ñ•½Éä°€À¤€¬Ý•¥¡Ñ•¤(€€€€€€€ÁÉ½™¥±”¹É¥Í­}Í½É”€ôµ¥¸¡¥¹Ð ¡™œ½Èíô¤¹•Ð ‰É¥Í­}Ñ½Ñ…±}Í½É•}…Àˆ°€ÄÀÀ¤¤°ÍÕ´¡…Ñ•½Éå}Ñ½Ñ…±Ì¹Ù…±Õ•Ì ¤¤¤(€€€€€€€ÁÉ½™¥±”¹Í•Ù•É¥Ñä€ô€‰É¥Ñ¥…°ˆ¥˜…¹ä¡¥Ñ•´¹Í•Ù•É¥Ñä€ôô€‰É¥Ñ¥…°ˆ™½È¥Ñ•´¥¸ÁÉ½™¥±”¹™¥¹‘¥¹Ì¤•±Í”€ ‰!¥ ˆ¥˜…¹ä¡¥Ñ•´¹Í•Ù•É¥Ñä€ôô€‰!¥ ˆ™½È¥Ñ•´¥¸ÁÉ½™¥±”¹™¥¹‘¥¹Ì¤•±Í”€ ‰5•‘¥Õ´ˆ¥˜…¹ä¡¥Ñ•´¹Í•Ù•É¥Ñä€ôô€‰5•‘¥Õ´ˆ™½È¥Ñ•´¥¸ÁÉ½™¥±”¹™¥¹‘¥¹Ì¤•±Í”€ ‰1½Üˆ¥˜ÁÉ½™¥±”¹™¥¹‘¥¹Ì•±Í”€‰%¹™¼ˆ¤¤¤(€€€€€€€ÁÉ½™¥±”¹Í½É•}É•…Í½¹Ì€ôm˜‰í¥Ñ•´¹Í•Ù•É¥Ñåôèí¥Ñ•´¹Ñ¥Ñ±•ôˆ™½È¥Ñ•´¥¸ÁÉ½™¥±”¹™¥¹‘¥¹Ít(€€€™¥¹‘¥¹Ì¹•áÑ•¹¡½ÉÉ•±…Ñ¥½¹}™¥¹‘¥¹Ì¤(€€€™¥¹‘¥¹Ílét€ô}‘•‘ÕÁ•}™¥¹‘¥¹Ì¡™¥¹‘¥¹Ì¤(()‘•˜}‘•‘ÕÁ•}™¥¹‘¥¹Ì¡™¥¹‘¥¹Ìè±¥ÍÑm¥¹‘¥¹t¤€´ø±¥ÍÑm¥¹‘¥¹tè(€€€Õ¹¥ÅÕ”è‘¥ÑmÑÕÁ±•m¹ä°€¸¸¹t°¥¹‘¥¹t€ôíô(€€€™½È¥Ñ•´¥¸™¥¹‘¥¹Ìè(€€€€€€€•Ù¥‘•¹”€ôÑÕÁ±”¡Í½ÉÑ•¡Ñ•áÐ¡•¹ÑÉä¹•Ð ‰‘•Ñ…¥°ˆ¤¤™½È•¹ÑÉä¥¸¥Ñ•´¹•Ù¥‘•¹”¤¤(€€€€€€€­•ä€ô€¡¥Ñ•´¹ÁÉ½•ÍÍ}­•ä°¥Ñ•´¹Á¥°¥Ñ•´¹Ñ¥Ñ±”°¥Ñ•´¹…Ñ•½Éä°•Ù¥‘•¹”¤(€€€€€€€•á¥ÍÑ¥¹œ€ôÕ¹¥ÅÕ”¹•Ð¡­•ä¤(€€€€€€€¥˜•á¥ÍÑ¥¹œ¥Ì9½¹”è(€€€€€€€€€€€Õ¹¥ÅÕ•m­•åt€ô¥Ñ•´(€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€•á¥ÍÑ¥¹œ¹½ÕÉÉ•¹•}½Õ¹Ð€¬ô¥Ñ•´¹½ÕÉÉ•¹•}½Õ¹Ð(€€€€€€€•á¥ÍÑ¥¹œ¹•Ù¥‘•¹”¹•áÑ•¹¡•¹ÑÉä™½È•¹ÑÉä¥¸¥Ñ•´¹•Ù¥‘•¹”¥˜•¹ÑÉä¹½Ð¥¸•á¥ÍÑ¥¹œ¹•Ù¥‘•¹”¤(€€€€€€€•á¥ÍÑ¥¹œ¹Í¥¹…±}É½ÕÁÌ€ôÍ½ÉÑ•¡Í•Ð¡•á¥ÍÑ¥¹œ¹Í¥¹…±}É½ÕÁÌ€¬¥Ñ•´¹Í¥¹…±}É½ÕÁÌ¤¤(€€€€€€€•á¥ÍÑ¥¹œ¹ÁÉ½Ù•¹…¹•}¥‘Ì€ôÍ½ÉÑ•¡Í•Ð¡•á¥ÍÑ¥¹œ¹ÁÉ½Ù•¹…¹•}¥‘Ì€¬¥Ñ•´¹ÁÉ½Ù•¹…¹•}¥‘Ì¤¤(€€€€€€€•á¥ÍÑ¥¹œ¹Í½É”€ôµ…à¡•á¥ÍÑ¥¹œ¹Í½É”°¥Ñ•´¹Í½É”¤(€€€É•ÑÕÉ¸±¥ÍÐ¡Õ¹¥ÅÕ”¹Ù…±Õ•Ì ¤¤(()‘•˜}•áÑÉ…Ñ}¥½Ì¡ÁÉ½™¥±•Ìè±¥ÍÑmAÉ½•ÍÍAÉ½™¥±•t°‰…Í•±¥¹”è‘¥ÑmÍÑÈ°¹åt¤€´ø±¥ÍÑm%=tè(€€€É•ÍÕ±Ðè‘¥ÑmÑÕÁ±•mÍÑÈ°ÍÑÉt°%=t€ôíô(€€€‰•¹¥¹}ÍÕ™™¥á•Ì€ôÑÕÁ±”¡ÍÑÈ¡¥Ñ•´¤¹…Í•™½± ¤¹±ÍÑÉ¥À ˆ¸ˆ¤™½È¥Ñ•´¥¸‰…Í•±¥¹”¹•Ð ‰‰•¹¥¹}‘½µ…¥¹}ÍÕ™™¥á•Ìˆ°mt¤¥˜ÍÑÈ¡¥Ñ•´¤¹ÍÑÉ¥À ¤¤(€€€™½ÈÁÉ½™¥±”¥¸ÁÉ½™¥±•Ìè(€€€€€€€½ÉÉ½‰½É…Ñ•€ô…¹ä¡¥Ñ•´¹‘¥ÍÁ½Í¥Ñ¥½¸€ôô€‰½ÉÉ½‰½É…Ñ•ˆ™½È¥Ñ•´¥¸ÁÉ½™¥±”¹™¥¹‘¥¹Ì¤(€€€€€€€™½È½¹¸¥¸ÁÉ½™¥±”¹¹•ÑÝ½É­}½¹¹•Ñ¥½¹Ìè(€€€€€€€€€€€É•µ½Ñ”€ôÑ•áÐ¡½¹¸¹É•µ½Ñ•}…‘‘È¤(€€€€€€€€€€€¥˜¥Í}ÁÕ‰±¥}¥À¡É•µ½Ñ”¤è(€€€€€€€€€€€€€€€}…‘‘}¥½Œ¡É•ÍÕ±Ð°%= ‰¥Àˆ°É•µ½Ñ”°€‰¹•ÑÝ½É¬ˆ°ÁÉ½™¥±”¹¹…µ”°ÁÉ½™¥±”¹Á¥°€‰µ•‘¥Õ´ˆ¥˜½ÉÉ½‰½É…Ñ••±Í”€‰±½Üˆ°€‰AÕ‰±¥ŒÉ•µ½Ñ”•¹‘Á½¥¹ÐÉ•½Ù•É•™É½´¹•ÑÍ…¸¸ˆ°ÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•ä°€‰…Ñ¥½¹…‰±”ˆ¥˜½ÉÉ½‰½É…Ñ••±Í”€‰…¹‘¥‘…Ñ”ˆ¤¤(€€€€€€€™½ÈÙ…±Õ”¥¸UI0¹™¥¹‘…±°¡ÁÉ½™¥±”¹½µµ…¹‘}±¥¹”¤è(€€€€€€€€€€€}…‘‘}¥½Œ¡É•ÍÕ±Ð°%= ‰ÕÉ°ˆ°Ù…±Õ”¹ÉÍÑÉ¥À ˆ¸°ì¥uôˆ¤°€‰µ‘±¥¹”ˆ°ÁÉ½™¥±”¹¹…µ”°ÁÉ½™¥±”¹Á¥°€‰µ•‘¥Õ´ˆ°€‰UI0É•½Ù•É•™É½´½µµ…¹±¥¹”¸ˆ°ÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•ä°€‰…¹‘¥‘…Ñ”ˆ¤¤(€€€€€€€™½ÈÙ…±Õ”¥¸=5%8¹™¥¹‘…±°¡ÁÉ½™¥±”¹½µµ…¹‘}±¥¹”¤è(€€€€€€€€€€€¹½Éµ…±¥é•€ôÙ…±Õ”¹…Í•™½± ¤¹ÉÍÑÉ¥À ˆ¸ˆ¤(€€€€€€€€€€€¥˜¹½Éµ…±¥é•¥¸ì‰µ¥É½Í½™Ð¹¹•Ðˆ°€‰ÍåÍÑ•´¹½É”ˆ°€‰ÍåÍÑ•´¹áµ°‰ô½È…¹ä¡¹½Éµ…±¥é•€ôôÍÕ™™¥à½È¹½Éµ…±¥é•¹•¹‘ÍÝ¥Ñ  ˆ¸ˆ€¬ÍÕ™™¥à¤™½ÈÍÕ™™¥à¥¸‰•¹¥¹}ÍÕ™™¥á•Ì¤è(€€€€€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€€€€€}…‘‘}¥½Œ¡É•ÍÕ±Ð°%= ‰‘½µ…¥¸ˆ°¹½Éµ…±¥é•°€‰µ‘±¥¹”ˆ°ÁÉ½™¥±”¹¹…µ”°ÁÉ½™¥±”¹Á¥°€‰±½Üˆ°€‰½µ…¥¸µÍ¡…Á•Ù…±Õ”É•½Ù•É•™É½´½µµ…¹±¥¹”¸ˆ°ÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•ä°€‰…¹‘¥‘…Ñ”ˆ¤¤(€€€É•ÑÕÉ¸±¥ÍÐ¡É•ÍÕ±Ð¹Ù…±Õ•Ì ¤¤(()‘•˜}…‘‘}¥½Œ¡¥Ñ•µÌè‘¥ÑmÑÕÁ±•mÍÑÈ°ÍÑÉt°%=t°…¹‘¥‘…Ñ”è%=¤€´ø9½¹”è(€€€­•ä€ô€¡…¹‘¥‘…Ñ”¹ÑåÁ”°…¹‘¥‘…Ñ”¹Ù…±Õ”¹…Í•™½± ¤¤(€€€¥˜­•ä¥¸¥Ñ•µÌè(€€€€€€€¥Ñ•µÍm­•åt¹½ÕÉÉ•¹•}½Õ¹Ð€¬ô€Ä(€€€€€€€¥˜…¹‘¥‘…Ñ”¹…Ñ¥½¹…‰¥±¥Ñä€ôô€‰…Ñ¥½¹…‰±”ˆè(€€€€€€€€€€€¥Ñ•µÍm­•åt¹…Ñ¥½¹…‰¥±¥Ñä€ô€‰…Ñ¥½¹…‰±”ˆ(€€€€€€€É•ÑÕÉ¸(€€€¥Ñ•µÍm­•åt€ô…¹‘¥‘…Ñ”(()‘•˜}Ñ¥µ•±¥¹”¡ÁÉ½™¥±•Ìè±¥ÍÑmAÉ½•ÍÍAÉ½™¥±•t°™¥¹‘¥¹Ìè±¥ÍÑm¥¹‘¥¹t°Á…ÉÍ•è‘¥ÑmÍÑÈ°±¥ÍÑm¹åutð9½¹”€ô9½¹”¤€´ø±¥ÍÑmQ¥µ•±¥¹•Ù•¹Ñtè(€€€•Ù•¹ÑÌè±¥ÍÑmQ¥µ•±¥¹•Ù•¹Ñt€ômt(€€€™½ÈÁÉ½™¥±”¥¸ÁÉ½™¥±•Ìè(€€€€€€€¥˜ÁÉ½™¥±”¹É•…Ñ•}Ñ¥µ”è(€€€€€€€€€€€•Ù•¹ÑÌ¹…ÁÁ•¹¡Q¥µ•±¥¹•Ù•¹Ð¡ÁÉ½™¥±”¹É•…Ñ•}Ñ¥µ”°€‰ÁÉ½•ÍÍ}ÍÑ…ÉÐˆ°ÁÉ½™¥±”¹Á¥°ÁÉ½™¥±”¹¹…µ”°ÁÉ½™¥±”¹½µµ…¹‘}±¥¹”½ÈÁÉ½™¥±”¹¥µ…•}Á…Ñ °€‰ÁÉ½•ÍÌ½ÉÉ•±…Ñ¥½¸ˆ°ÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•ä¤¤(€€€€€€€¥˜ÁÉ½™¥±”¹•á¥Ñ}Ñ¥µ”è(€€€€€€€€€€€•Ù•¹ÑÌ¹…ÁÁ•¹¡Q¥µ•±¥¹•Ù•¹Ð¡ÁÉ½™¥±”¹•á¥Ñ}Ñ¥µ”°€‰ÁÉ½•ÍÍ}•á¥Ðˆ°ÁÉ½™¥±”¹Á¥°ÁÉ½™¥±”¹¹…µ”°€‰á¥ÐÑ¥µ”É•½Ù•É•™É½´ÁÉ½•ÍÌ…ÉÑ¥™…Ð¸ˆ°€‰ÁÉ½•ÍÌ½ÉÉ•±…Ñ¥½¸ˆ°ÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•ä¤¤(€€€€€€€™½È½¹¸¥¸ÁÉ½™¥±”¹¹•ÑÝ½É­}½¹¹•Ñ¥½¹Ìè(€€€€€€€€€€€•Ù•¹ÑÌ¹…ÁÁ•¹¡Q¥µ•±¥¹•Ù•¹Ð ˆˆ°€‰¹•ÑÝ½É¬ˆ°ÁÉ½™¥±”¹Á¥°ÁÉ½™¥±”¹¹…µ”°˜‰í½¹¸¹ÁÉ½Ñ½½±ôí½¹¸¹É•µ½Ñ•}…‘‘Éôéí½¹¸¹É•µ½Ñ•}Á½ÉÑôí½¹¸¹ÍÑ…Ñ•ôˆ°½¹¸¹Í½ÕÉ•}Á±Õ¥¸°ÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•ä¤¤(€€€™½ÈÉ½Ü¥¸€¡Á…ÉÍ•½Èíô¤¹•Ð ‰Ñ¥µ•±¥¹•Èˆ°mt¤è(€€€€€€€•Ù•¹ÑÌ¹…ÁÁ•¹¡Q¥µ•±¥¹•Ù•¹Ð¡Ñ•áÐ¡É½Ü¹•Ð ‰Ñ¥µ•ÍÑ…µÀˆ¤¤°Ñ•áÐ¡É½Ü¹•Ð ‰•Ù•¹Ñ}ÑåÁ”ˆ¤¤½È€‰Ñ¥µ•±¥¹•Èˆ°É½Ü¹•Ð ‰Á¥ˆ¤°Ñ•áÐ¡É½Ü¹•Ð ‰ÁÉ½•ÍÍ}¹…µ”ˆ¤¤°Ñ•áÐ¡É½Ü¹•Ð ‰‘•ÍÉ¥ÁÑ¥½¸ˆ¤½ÈÉ½Ü¹•Ð ‰‘•Ñ…¥±Ìˆ¤¤°€‰Ñ¥µ•±¥¹•Èˆ°Ñ•áÐ¡É½Ü¹•Ð ‰ÁÉ½•ÍÍ}­•äˆ¤¤¤¤(€€€™½ÈÉ½Ü¥¸€¡Á…ÉÍ•½Èíô¤¹•Ð ‰Í¡•‘Õ±•‘}Ñ…Í­Ìˆ°mt¤è(€€€€€€€Ñ¥µ•ÍÑ…µÀ€ôÑ•áÐ¡É½Ü¹•Ð ‰±…ÍÑ}ÉÕ¹}Ñ¥µ”ˆ¤½ÈÉ½Ü¹•Ð ‰¹•áÑ}ÉÕ¹}Ñ¥µ”ˆ¤¤(€€€€€€€‘•Ñ…¥°€ô€ˆ€ˆ¹©½¥¸¡Ñ•áÐ¡É½Ü¹•Ð¡­•ä¤¤™½È­•ä¥¸€ ‰Ñ…Í­}¹…µ”ˆ°€‰…Ñ¥½¸ˆ°€‰…ÉÕµ•¹ÑÌˆ¤¥˜Ñ•áÐ¡É½Ü¹•Ð¡­•ä¤¤¤(€€€€€€€•Ù•¹ÑÌ¹…ÁÁ•¹¡Q¥µ•±¥¹•Ù•¹Ð¡Ñ¥µ•ÍÑ…µÀ°€‰Í¡•‘Õ±•‘}Ñ…Í¬ˆ°É½Ü¹•Ð ‰Á¥ˆ¤°Ñ•áÐ¡É½Ü¹•Ð ‰ÁÉ½•ÍÍ}¹…µ”ˆ¤¤°‘•Ñ…¥°°€‰Ý¥¹‘½ÝÌ¹É•¥ÍÑÉä¹Í¡•‘Õ±•‘}Ñ…Í­Ìˆ°Ñ•áÐ¡É½Ü¹•Ð ‰ÁÉ½•ÍÍ}­•äˆ¤¤¤¤(€€€™½È™¥¹‘¥¹œ¥¸™¥¹‘¥¹Ìè(€€€€€€€¥˜™¥¹‘¥¹œ¹‘¥ÍÁ½Í¥Ñ¥½¸€„ô€‰½‰Í•ÉÙ•ˆè(€€€€€€€€€€€•Ù•¹ÑÌ¹…ÁÁ•¹¡Q¥µ•±¥¹•Ù•¹Ð ˆˆ°€‰™¥¹‘¥¹œˆ°™¥¹‘¥¹œ¹Á¥°™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}¹…µ”°™¥¹‘¥¹œ¹Ñ¥Ñ±”°™¥¹‘¥¹œ¹•Ù¥‘•¹•lÁt¹•Ð ‰Í½ÕÉ”ˆ°€‰I5M½Á”ˆ¤¥˜™¥¹‘¥¹œ¹•Ù¥‘•¹”•±Í”€‰I5M½Á”ˆ°™¥¹‘¥¹œ¹ÁÉ½•ÍÍ}­•ä¤¤(€€€É•ÑÕÉ¸}‘•‘ÕÁ•}Ñ¥µ•±¥¹”¡•Ù•¹ÑÌ¤(()‘•˜}‘•‘ÕÁ•}Ñ¥µ•±¥¹”¡•Ù•¹ÑÌè±¥ÍÑmQ¥µ•±¥¹•Ù•¹Ñt¤€´ø±¥ÍÑmQ¥µ•±¥¹•Ù•¹Ñtè(€€€Õ¹¥ÅÕ”è‘¥ÑmÑÕÁ±•m¹ä°€¸¸¹t°Q¥µ•±¥¹•Ù•¹Ñt€ôíô(€€€™½È•Ù•¹Ð¥¸•Ù•¹ÑÌè(€€€€€€€­•ä€ô€¡•Ù•¹Ð¹Ñ¥µ•ÍÑ…µÀ°•Ù•¹Ð¹•Ù•¹Ñ}ÑåÁ”°•Ù•¹Ð¹Á¥°•Ù•¹Ð¹ÁÉ½•ÍÍ}¹…µ”°•Ù•¹Ð¹‘•Ñ…¥°°•Ù•¹Ð¹Í½ÕÉ”¤(€€€€€€€Õ¹¥ÅÕ”¹Í•Ñ‘•™…Õ±Ð¡­•ä°•Ù•¹Ð¤(€€€É•ÑÕÉ¸Í½ÉÑ•¡Õ¹¥ÅÕ”¹Ù…±Õ•Ì ¤°­•äõ±…µ‰‘„¥Ñ•´è€¡¹½Ð‰½½°¡¥Ñ•´¹Ñ¥µ•ÍÑ…µÀ¤°¥Ñ•´¹Ñ¥µ•ÍÑ…µÀ°¥Ñ•´¹•Ù•¹Ñ}ÑåÁ”°¥Ñ•´¹Á¥½È€´Ä¤¤(()‘•˜}Á•ÉÍ¥ÍÐ¡…Í•}‘¥ÈèA…Ñ °ÁÉ½™¥±•Ìè±¥ÍÑmAÉ½•ÍÍAÉ½™¥±•t°™¥¹‘¥¹Ìè±¥ÍÑm¥¹‘¥¹t°¥½Ìè±¥ÍÑm%=t°Ñ¥µ•±¥¹”è±¥ÍÑmQ¥µ•±¥¹•Ù•¹Ñt°Ñ…É•ÐèQ…É•Ñ%¹™¼°Õ¹É•Í½±Ù•è±¥ÍÑm‘¥ÑmÍÑÈ°¹åut°½‰Í•ÉÙ•è±¥ÍÑm‘¥ÑmÍÑÈ°¹åut¤€´ø9½¹”è(€€€¹½Éµ…±¥é•€ô…Í•}‘¥È€¼€‰¹½Éµ…±¥é•ˆ(€€€ÝÉ¥Ñ•}©Í½¸¡¹½Éµ…±¥é•€¼€‰ÁÉ½•ÍÍ}ÁÉ½™¥±•Ì¹©Í½¸ˆ°ÁÉ½™¥±•Ì¤(€€€ÝÉ¥Ñ•}©Í½¸¡¹½Éµ…±¥é•€¼€‰™¥¹‘¥¹Ì¹©Í½¸ˆ°™¥¹‘¥¹Ì¤(€€€ÝÉ¥Ñ•}©Í½¸¡¹½Éµ…±¥é•€¼€‰É¥Í­}ÍÕµµ…Éä¹©Í½¸ˆ°ì‰™¥¹‘¥¹Ìˆè™¥¹‘¥¹Ì°€‰½ÉÉ½‰½É…Ñ•ˆèÍÕ´¡¥Ñ•´¹‘¥ÍÁ½Í¥Ñ¥½¸€ôô€‰½ÉÉ½‰½É…Ñ•ˆ™½È¥Ñ•´¥¸™¥¹‘¥¹Ì¤°€‰±•…‘ÌˆèÍÕ´¡¥Ñ•´¹‘¥ÍÁ½Í¥Ñ¥½¸€ôô€‰±•…ˆ™½È¥Ñ•´¥¸™¥¹‘¥¹Ì¥ô¤(€€€ÝÉ¥Ñ•}©Í½¸¡¹½Éµ…±¥é•€¼€‰Ñ¥µ•±¥¹”¹©Í½¸ˆ°Ñ¥µ•±¥¹”¤(€€€ÝÉ¥Ñ•}©Í½¸¡¹½Éµ…±¥é•€¼€‰Õ¹‘…Ñ•‘}•Ù•¹ÑÌ¹©Í½¸ˆ°m¥Ñ•´™½È¥Ñ•´¥¸Ñ¥µ•±¥¹”¥˜¹½Ð¥Ñ•´¹Ñ¥µ•ÍÑ…µÁt¤(€€€ÝÉ¥Ñ•}©Í½¸¡¹½Éµ…±¥é•€¼€‰Ñ…É•Ñ}¥¹™¼¹©Í½¸ˆ°Ñ…É•Ð¤(€€€ÝÉ¥Ñ•}©Í½¸¡¹½Éµ…±¥é•€¼€‰Õ¹É•Í½±Ù•‘}…ÉÑ¥™…ÑÌ¹©Í½¸ˆ°Õ¹É•Í½±Ù•¤(€€€ÝÉ¥Ñ•}©Í½¸¡¹½Éµ…±¥é•€¼€‰½‰Í•ÉÙ•‘}…ÉÑ¥™…ÑÌ¹©Í½¸ˆ°½‰Í•ÉÙ•¤(€€€ÝÉ¥Ñ•}©Í½¸¡…Í•}‘¥È€¼€‰¥½Ìˆ€¼€‰¥½Ì¹©Í½¸ˆ°¥½Ì¤(€€€ÝÉ¥Ñ•}©Í½¸¡…Í•}‘¥È€¼€‰¥½Ìˆ€¼€‰…¹‘¥‘…Ñ•}¥½Ì¹©Í½¸ˆ°m¥Ñ•´™½È¥Ñ•´¥¸¥½Ì¥˜¥Ñ•´¹…Ñ¥½¹…‰¥±¥Ñä€ôô€‰…¹‘¥‘…Ñ”‰t¤(€€€ÝÉ¥Ñ•}©Í½¸¡…Í•}‘¥È€¼€‰¥½Ìˆ€¼€‰…Ñ¥½¹…‰±•}¥½Ì¹©Í½¸ˆ°m¥Ñ•´™½È¥Ñ•´¥¸¥½Ì¥˜¥Ñ•´¹…Ñ¥½¹…‰¥±¥Ñä€ôô€‰…Ñ¥½¹…‰±”‰t¤(()‘•˜}ÕÍ•É}ÝÉ¥Ñ…‰±•}Ñ½­•¹Ì¡‰…Í•±¥¹”è‘¥ÑmÍÑÈ°¹åt¤€´øÑÕÁ±•mÍÑÈ°€¸¸¹tè(€€€½¹™¥ÕÉ•€ô‰…Í•±¥¹”¹•Ð ‰ÕÍ•É}ÝÉ¥Ñ…‰±•}Ñ½­•¹Ìˆ°U1Q}UMI}]I%Q	1¤(€€€Ù…±Õ•Ì€ô½¹™¥ÕÉ•¥˜¥Í¥¹ÍÑ…¹”¡½¹™¥ÕÉ•°€¡±¥ÍÐ°ÑÕÁ±”¤¤•±Í”U1Q}UMI}]I%Q	1(€€€É•ÑÕÉ¸ÑÕÁ±”¡…¹½¹¥…±}Ý¥¹‘½ÝÍ}Á…Ñ ¡Ù…±Õ”¤¥˜¹½ÐÍÑÈ¡Ù…±Õ”¤¹ÍÑ…ÉÑÍÝ¥Ñ  ‰qpˆ¤•±Í”ÍÑÈ¡Ù…±Õ”¤¹…Í•™½± ¤™½ÈÙ…±Õ”¥¸Ù…±Õ•Ì¤(()‘•˜}ÍÕÍÁ¥¥½ÕÍ}Á½Ý•ÉÍ¡•±°¡½µµ…¹èÍÑÈ¤€´ø‰½½°è(€€€±½Ý•É•€ô½µµ…¹¹…Í•™½± ¤(€€€É•ÑÕÉ¸…¹ä¡Ñ½­•¸¥¸±½Ý•É•™½ÈÑ½­•¸¥¸€ ˆ€µ•¹Œˆ°€ˆµ•¹½‘•‘½µµ…¹ˆ°€‰™É½µ‰…Í”ØÑÍÑÉ¥¹œˆ°€‰¥¹Ù½­”µ•áÁÉ•ÍÍ¥½¸ˆ°€ˆ¥•àˆ°€‰¥•à€ˆ¤¤(()‘•˜}¥Í}¹•…Ñ¥Ù•}Í¥¹…°¡Ù…±Õ”èÍÑÈ¤€´ø‰½½°è(€€€±½Ý•É•€ôÙ…±Õ”¹…Í•™½± ¤¹ÍÑÉ¥À ¤(€€€¥˜¹½Ð±½Ý•É•è(€€€€€€€É•ÑÕÉ¸QÉÕ”(€€€¥˜±½Ý•É•¥¸ì‰™…±Í”ˆ°€ˆÀˆ°€‰¹½¹”ˆ°€‰‘¥Í…‰±•ˆ°€‰¸½„ˆ°€‰¹¼‰ôè(€€€€€€€É•ÑÕÉ¸QÉÕ”(€€€¥˜…¹ä¡Ñ½­•¸¥¸±½Ý•É•™½ÈÑ½­•¸¥¸9Q%Y}M%91}Q=-9L¤è(€€€€€€€É•ÑÕÉ¸QÉÕ”(€€€‰½½±•…¹}Ù…±Õ•Ì€ôÉ”¹™¥¹‘…±°¡Èˆ üéyñqÌ¥m„µèÀ´å|¸µt¬ô¡ÑÉÕ•ñ™…±Í•ñå•Íñ¹½ðÅðÀ¤ üõqÍð¤ˆ°±½Ý•É•¤(€€€É•ÑÕÉ¸‰½½°¡‰½½±•…¹}Ù…±Õ•Ì¤…¹…±°¡¥Ñ•´¥¸ì‰™…±Í”ˆ°€‰¹¼ˆ°€ˆÀ‰ô™½È¥Ñ•´¥¸‰½½±•…¹}Ù…±Õ•Ì¤(()‘•˜}Ù…‘}ÁÉ½Ù•¹…¹”¡ÁÉ½™¥±”èAÉ½•ÍÍAÉ½™¥±”°ÍÑ…ÉÐèÍÑÈ°•¹èÍÑÈ¤€´øÍÑÈè(€€€É•ÑÕÉ¸˜‰Ù…éíÁÉ½™¥±”¹ÁÉ½•ÍÍ}­•åôéíÍÑ…ÉÑôéí•¹‘ôˆ(()‘•˜}•áÑÉ…Ñ}‘ÕµÁ}¡…Í ¡‘•Ñ…¥°èÍÑÈ¤€´øÍÑÈè(€€€µ…Ñ €ôÉ”¹Í•…É ¡È‰‘ÕµÁ}Í¡„ÈÔØô¡m„µ˜À´åuìØÑô¤ˆ°‘•Ñ…¥°°É”¹%9=IM¤(€€€É•ÑÕÉ¸µ…Ñ ¹É½ÕÀ Ä¤¹…Í•™½± ¤¥˜µ…Ñ •±Í”€ˆˆ(()‘•˜}¡…Í¡}™É½µ}•áÑ•É¹…±}‘•Ñ…¥°¡‘•Ñ…¥°èÍÑÈ°ÍÑ…ÑÕÌè±¥ÍÑm‘¥ÑmÍÑÈ°¹åut¤€´øÍÑÈè(€€€¹…µ•}µ…Ñ €ôÉ”¹Í•…É ¡Èˆ üé™½Éñ¥¸¥qÌ¬¡mxít¬ü¤ üèíð¤ˆ°‘•Ñ…¥°¤(€€€¥˜¹½Ð¹…µ•}µ…Ñ è(€€€€€€€É•ÑÕÉ¸€ˆˆ(€€€Ñ…É•Ñ}¹…µ”€ôA…Ñ ¡¹…µ•}µ…Ñ ¹É½ÕÀ Ä¤¹ÍÑÉ¥À ¤¤¹¹…µ”(€€€™½ÈÉ½Ü¥¸ÍÑ…ÑÕÌè(€€€€€€€™¥±•}Ù…±Õ”€ôÑ•áÐ¡É½Ü¹•Ð ‰™¥±”ˆ¤¤(€€€€€€€¥˜™¥±•}Ù…±Õ”…¹A…Ñ ¡™¥±•}Ù…±Õ”¤¹¹…µ”€ôôÑ…É•Ñ}¹…µ”è(€€€€€€€€€€€Á…Ñ €ôA…Ñ ¡™¥±•}Ù…±Õ”¤(€€€€€€€€€€€¥˜Á…Ñ ¹¥Í}™¥±” ¤è(€€€€€€€€€€€€€€€¥µÁ½ÉÐ¡…Í¡±¥ˆ((€€€€€€€€€€€€€€€‘¥•ÍÐ€ô¡…Í¡±¥ˆ¹Í¡„ÈÔØ ¤(€€€€€€€€€€€€€€€Ý¥Ñ Á…Ñ ¹½Á•¸ ‰Éˆˆ¤…Ì™¥±•}½‰¨è(€€€€€€€€€€€€€€€€€€€™½È¡Õ¹¬¥¸¥Ñ•È¡±…µ‰‘„è™¥±•}½‰¨¹É•… ÄÀÈÐ€¨€ÄÀÈÐ¤°ˆˆˆ¤è(€€€€€€€€€€€€€€€€€€€€€€€‘¥•ÍÐ¹ÕÁ‘…Ñ”¡¡Õ¹¬¤(€€€€€€€€€€€€€€€É•ÑÕÉ¸‘¥•ÍÐ¹¡•á‘¥•ÍÐ ¤(€€€É•ÑÕÉ¸€ˆˆ(
+            unresolved.append({"artifact": kind, "pid": pid, "process_name": name, "reason": "No unique EPROCESS or PID/create-time identity was available."})
+            return
+        if isinstance(row, NetworkArtifact):
+            row.process_key = profile.process_key
+            profile.network_connections.append(row)
+        elif isinstance(row, MalfindArtifact):
+            row.process_key = profile.process_key
+            profile.malfind_regions.append(row)
+        elif kind == "cmdline" and isinstance(row, dict):
+            profile.command_line = text(row.get("command_line"))
+        elif kind == "dll" and isinstance(row, dict):
+            profile.dlls.append(row)
+        elif isinstance(row, dict):
+            profile.artifact_context.setdefault(kind, []).append(row)
+
+    for row in parsed.get("cmdline", []):
+        attach(row, "cmdline")
+    for row in parsed.get("dlls", []):
+        attach(row, "dll")
+    for row in parsed.get("network", []):
+        attach(row, "network")
+    for row in parsed.get("malfind", []):
+        attach(row, "malfind")
+    for kind in ("ldrmodules", "vadinfo", "pebmasquerade", "suspicious_threads", "hollowprocesses", "processghosting"):
+        for row in parsed.get(kind, []):
+            attach(row, kind)
+
+    for profile in profiles.values():
+        profile.observed_in = sorted(set(profile.observed_in))
+    for profile in profiles.values():
+        parents = [item for item in by_pid.get(profile.ppid or -1, []) if not item.identity_ambiguous and _parent_precedes(item, profile)]
+        if len(parents) == 1:
+            profile.parent_process_key = parents[0].process_key
+            profile.parent_name = parents[0].name
+        elif profile.ppid is not None:
+            unresolved.append({"artifact": "process_parent", "pid": profile.pid, "process_name": profile.name, "reason": "Parent PID was absent, time-inconsistent, or identity-ambiguous; no parent relationship was asserted."})
+    return sorted(profiles.values(), key=lambda item: (item.pid, item.create_time, item.process_key)), unresolved
+
+
+def _parent_precedes(parent: ProcessProfile, child: ProcessProfile) -> bool:
+    if not parent.create_time or not child.create_time:
+        return True
+    return parent.create_time <= child.create_time
+
+
+def _generic_observations(parsed: dict[str, list[Any]], parsers: dict[str, tuple[str, Any]], semantic_plugins: set[str]) -> list[dict[str, Any]]:
+    observed: list[dict[str, Any]] = []
+    for name, (plugin, _) in parsers.items():
+        if plugin in semantic_plugins or not parsed.get(name):
+            continue
+        observed.append({"type": "plugin_artifact", "plugin": plugin, "count": len(parsed[name]), "reason": "Collected and normalized for analyst review; row presence alone is not treated as malicious evidence."})
+    return observed
+
+
+def _global_finding(title: str, severity: str, score: int, category: str, group: str, detail: str, provenance: str = "") -> Finding:
+    return Finding(
+        "",
+        None,
+        "",
+        title,
+        severity,
+        score,
+        "possible",
+        category,
+        [{"source": "RAMScope correlation", "detail": detail[:1000]}],
+        "Validate the raw artifact and obtain an independent signal before escalation.",
+        [group],
+        1,
+        "",
+        [],
+        "lead",
+        "",
+        [provenance] if provenance else [],
+    )
+
+
+def _generic_findings(parsed: dict[str, list[Any]], baseline: dict[str, Any]) -> list[Finding]:
+    findings: list[Finding] = []
+    writable = _user_writable_tokens(baseline)
+    for name in ("registry_run", "registry_runonce", "registry_wow64_run", "registry_wow64_runonce"):
+        for index, row in enumerate(parsed.get(name, [])):
+            key = canonical_windows_path(row.get("key"))
+            data = text(row.get("value_data"))
+            exact_run = bool(re.search(r"(?:^|\\)currentversion\\run(?:once)?$", key))
+            suspicious_data = any(token in canonical_windows_path(data) for token in writable) or bool(re.search(r"\b(?:rundll32|regsvr32|mshta|powershell|pwsh|wscript|cscript)\.exe\b", data, re.IGNORECASE))
+            if exact_run and suspicious_data:
+                findings.append(_global_finding("Run-key value points to a user-writable path or LOLBin", "Medium", 20, "persistence", "persistence", data, f"{name}:{index}"))
+    for index, row in enumerate(parsed.get("services", [])):
+        binary = text(row.get("binary"))
+        if binary and any(token in canonical_windows_path(binary) for token in writable):
+            findings.append(_global_finding("Service binary points to a user-writable location", "Medium", 20, "persistence", "persistence", binary, f"service:{index}"))
+    for index, row in enumerate(parsed.get("scheduled_tasks", [])):
+        command = " ".join(text(row.get(key)) for key in ("action", "arguments", "working_directory"))
+        suspicious = any(token in canonical_windows_path(command) for token in writable) or bool(re.search(r"\b(?:powershell|pwsh|cmd|mshta|wscript|cscript|rundll32|regsvr32)(?:\.exe)?\b", command, re.IGNORECASE))
+        if suspicious:
+           â€¦1218 tokens truncatedâ€¦         if flags and all(flag is False for flag in flags) and (path or row.get("base")):
+                findings.append(_finding(profile, "Loader-list discrepancy requires correlation", "Low", 10, "module", "module", "lead", path, f"ldr:{profile.process_key}:{text(row.get('base'))}:{canonical_windows_path(path)}"))
+
+        for row in profile.artifact_context.get("pebmasquerade", []):
+            raw = row.get("raw_fields", {}) if isinstance(row.get("raw_fields"), dict) else {}
+            command_spoofed = boolish(row.get("peb_commandline_spoofed")) or boolish(raw.get("peb_commandline_spoofed"))
+            path_spoofed = boolish(row.get("peb_imagefilepath_spoofed")) or boolish(raw.get("peb_imagefilepath_spoofed"))
+            if command_spoofed is True or path_spoofed is True:
+                findings.append(_finding(profile, "PEB spoofing flag requires validation", "Medium", 25, "process", "process", "lead", text(row.get("details"))[:500], f"peb:{profile.process_key}"))
+
+        for row in profile.artifact_context.get("hollowprocesses", []):
+            details = text(row.get("details") or row.get("notes"))
+            if details and not _is_negative_signal(details):
+                findings.append(_finding(profile, "Possible process hollowing candidate requires validation", "Medium", 25, "process", "execution", "lead", details[:500], f"hollow:{profile.process_key}:{text(row.get('address'))}"))
+
+        for row in profile.artifact_context.get("processghosting", []):
+            details = text(row.get("details") or row.get("notes"))
+            deletion = boolish(row.get("delete_pending")) is True or boolish(row.get("delete_on_close")) is True
+            file_context = bool(text(row.get("file_object")) or text(row.get("path")))
+            if (deletion or file_context) and not _is_negative_signal(details):
+                findings.append(_finding(profile, "Possible process ghosting candidate requires validation", "Medium", 25, "process", "execution", "lead", details[:500], f"ghost:{profile.process_key}:{text(row.get('address'))}:{text(row.get('file_object'))}"))
+
+        for row in profile.artifact_context.get("suspicious_threads", []):
+            details = text(row.get("details"))
+            if "non-file backed" in details.casefold() or "private" in details.casefold():
+                severity = "Low" if is_security_or_jit_process(profile.name) else "Medium"
+                findings.append(_finding(profile, "Thread start in a non-file-backed region requires validation", severity, 25, "thread", "thread", "lead", details[:500], f"thread:{profile.process_key}:{text(row.get('address'))}"))
+
+        has_memory_or_thread = any(item.process_key == profile.process_key and item.category in {"memory", "thread"} for item in findings)
+        for conn in profile.network_connections:
+            if is_public_ip(text(conn.remote_addr)) and has_memory_or_thread:
+                findings.append(_finding(profile, "Public network endpoint correlated with memory lead", "Medium", 20, "network", "network", "lead", f"{conn.remote_addr}:{conn.remote_port}", f"network:{profile.process_key}:{conn.remote_addr}:{conn.remote_port}"))
+    return findings, observed
+
+
+def _finding(
+    profile: ProcessProfile,
+    title: str,
+    severity: str,
+    score: int,
+    category: str,
+    group: str,
+    disposition: str,
+    detail: str = "",
+    provenance: str = "",
+) -> Finding:
+    return Finding(
+        "",
+        profile.pid,
+        profile.name,
+        title,
+        severity,
+        score,
+        "possible",
+        category,
+        [{"source": "RAMScope correlation", "detail": detail or title}],
+        "Review the raw Volatility artifact and obtain an independent corroborating signal before escalation.",
+        [group],
+        1,
+        profile.process_key,
+        [],
+        disposition,
+        "",
+        [provenance] if provenance else [],
+    )
+
+
+def _scan_yara(case_dir: Path, rules: list[Path], compiled: Path | None, profiles: list[ProcessProfile], timeout: int) -> list[Finding]:
+    scanner = YaraScanner(rules, compiled_path=compiled, timeout_seconds=timeout)
+    findings = scanner.scan_directory(case_dir / "dumps" / "suspicious_memory")
+    by_pid: dict[int, list[ProcessProfile]] = {}
+    for profile in profiles:
+        by_pid.setdefault(profile.pid, []).append(profile)
+    for finding in findings:
+        finding.severity, finding.score, finding.confidence, finding.disposition = "Low", 15, "unverified", "lead"
+        finding.category = "signature"
+        finding.signal_groups = ["signature"]
+        detail = " ".join(item.get("detail", "") for item in finding.evidence)
+        dump_hash = _extract_dump_hash(detail)
+        finding.provenance_ids = [f"dump:{dump_hash}"] if dump_hash else []
+        match = re.search(r"pid[._:= -]+(\d+)", detail, re.IGNORECASE)
+        if match and len(by_pid.get(int(match.group(1)), [])) == 1:
+            profile = by_pid[int(match.group(1))][0]
+            finding.pid, finding.process_name, finding.process_key = profile.pid, profile.name, profile.process_key
+            if is_security_or_jit_process(profile.name):
+                finding.suppressed_reason = "Signature match belongs to a security/JIT-heavy process and needs stronger corroboration."
+    write_json(case_dir / "normalized" / "yara" / "scan_status.json", scanner.last_status)
+    return findings
+
+
+def _scan_external_tools(case_dir: Path, settings: dict[str, Any], profiles: list[ProcessProfile]) -> list[Finding]:
+    try:
+        findings, status, _ = ExternalToolAnalyzer(**settings).analyze(case_dir / "dumps" / "suspicious_memory", case_dir / "normalized" / "external_tools")
+    except Exception as exc:  # noqa: BLE001 - external tools must not stop forensic collection.
+        write_json(case_dir / "normalized" / "external_tools" / "status.json", [{"tool": "external-tools", "status": "error", "detail": f"{type(exc).__name__}: {exc}"}])
+        return []
+    write_json(case_dir / "normalized" / "external_tool_status.json", status)
+    by_pid: dict[int, list[ProcessProfile]] = {}
+    for profile in profiles:
+        by_pid.setdefault(profile.pid, []).append(profile)
+    for finding in findings:
+        finding.severity, finding.score, finding.confidence, finding.disposition = "Low", min(15, finding.score), "unverified", "lead"
+        finding.category = "signature"
+        finding.signal_groups = ["signature"]
+        detail = " ".join(item.get("detail", "") for item in finding.evidence)
+        dump_hash = _hash_from_external_detail(detail, status)
+        finding.provenance_ids = [f"dump:{dump_hash}"] if dump_hash else []
+        match = re.search(r"pid[._:= -]+(\d+)", detail, re.IGNORECASE)
+        if match and len(by_pid.get(int(match.group(1)), [])) == 1:
+            profile = by_pid[int(match.group(1))][0]
+            finding.pid, finding.process_name, finding.process_key = profile.pid, profile.name, profile.process_key
+            if is_security_or_jit_process(profile.name):
+                finding.suppressed_reason = "External-tool signal belongs to a security/JIT-heavy process and needs stronger corroboration."
+    return findings
+
+
+def _attach_without_scoring(profiles: list[ProcessProfile], findings: list[Finding]) -> None:
+    findings[:] = _dedupe_findings(findings)
+    by_key = {profile.process_key: profile for profile in profiles}
+    for profile in profiles:
+        profile.findings = []
+        profile.risk_score = 0
+        profile.severity = "Info"
+        profile.score_reasons = []
+    for finding in findings:
+        attached_profile = by_key.get(finding.process_key)
+        if attached_profile is not None:
+            attached_profile.findings.append(finding)
+
+
+def _attach_and_score(profiles: list[ProcessProfile], findings: list[Finding], cfg: dict[str, Any] | None = None) -> None:
+    findings[:] = _dedupe_findings(findings)
+    by_key = {profile.process_key: profile for profile in profiles}
+    for profile in profiles:
+        profile.findings = []
+    for finding in findings:
+        attached_profile = by_key.get(finding.process_key)
+        if attached_profile is not None:
+            attached_profile.findings.append(finding)
+
+    correlation_findings: list[Finding] = []
+    for profile in profiles:
+        active = [item for item in profile.findings if item.disposition == "lead" and not item.suppressed_reason]
+        group_provenance: dict[str, set[str]] = {}
+        for item in active:
+            provenances = set(item.provenance_ids) or {f"finding:{item.category}:{item.title}"}
+            for group in item.signal_groups:
+                group_provenance.setdefault(group, set()).update(provenances)
+        groups = set(group_provenance)
+        independent = set().union(*group_provenance.values()) if group_provenance else set()
+        has_strong = bool(groups.intersection({"memory", "signature", "thread"}))
+        severity = ""
+        if len(groups) >= 3 and len(independent) >= 3 and has_strong and groups.intersection({"network", "persistence"}):
+            severity = "Critical"
+        elif len(groups) >= 2 and len(independent) >= 2 and has_strong:
+            severity = "High"
+        if severity:
+            correlation = _finding(
+                profile,
+                "Multiple independent suspicious indicators require priority review",
+                severity,
+                30 if severity == "High" else 45,
+                "correlation",
+                "correlation",
+                "corroborated",
+                f"signal_groups={sorted(groups)}; independent_provenance={len(independent)}",
+                f"correlation:{profile.process_key}:{'|'.join(sorted(independent))}",
+            )
+            correlation.confidence = "corroborated"
+            correlation.signal_groups = sorted(groups)
+            correlation.provenance_ids = sorted(independent)
+            profile.findings.append(correlation)
+            correlation_findings.append(correlation)
+
+        category_totals: dict[str, int] = {}
+        configured_caps = (cfg or {}).get("risk_category_caps", {})
+        category_caps = {
+            "memory": 40,
+            "thread": 30,
+            "signature": 25,
+            "network": 20,
+            "persistence": 25,
+            "module": 20,
+            "process": 25,
+            "execution": 25,
+            "correlation": 45,
+            **{str(key): int(value) for key, value in configured_caps.items()},
+        }
+        weights = (cfg or {}).get("risk_weights", {})
+        for item in profile.findings:
+            if item.disposition == "observed" or item.suppressed_reason:
+                continue
+            weighted = round(item.score * float(weights.get(item.category, 1.0)))
+            category_totals[item.category] = min(category_caps.get(item.category, 20), category_totals.get(item.category, 0) + weighted)
+        profile.risk_score = min(int((cfg or {}).get("risk_total_score_cap", 100)), sum(category_totals.values()))
+        profile.severity = "Critical" if any(item.severity == "Critical" for item in profile.findings) else ("High" if any(item.severity == "High" for item in profile.findings) else ("Medium" if any(item.severity == "Medium" for item in profile.findings) else ("Low" if profile.findings else "Info")))
+        profile.score_reasons = [f"{item.severity}: {item.title}" for item in profile.findings]
+    findings.extend(correlation_findings)
+    findings[:] = _dedupe_findings(findings)
+
+
+def _dedupe_findings(findings: list[Finding]) -> list[Finding]:
+    unique: dict[tuple[Any, ...], Finding] = {}
+    for item in findings:
+        evidence = tuple(sorted(text(entry.get("detail")) for entry in item.evidence))
+        key = (item.process_key, item.pid, item.title, item.category, evidence)
+        existing = unique.get(key)
+        if existing is None:
+            unique[key] = item
+            continue
+        existing.occurrence_count += item.occurrence_count
+        existing.evidence.extend(entry for entry in item.evidence if entry not in existing.evidence)
+        existing.signal_groups = sorted(set(existing.signal_groups + item.signal_groups))
+        existing.provenance_ids = sorted(set(existing.provenance_ids + item.provenance_ids))
+        existing.score = max(existing.score, item.score)
+    return list(unique.values())
+
+
+def _extract_iocs(profiles: list[ProcessProfile], baseline: dict[str, Any]) -> list[IOC]:
+    result: dict[tuple[str, str], IOC] = {}
+    benign_suffixes = tuple(str(item).casefold().lstrip(".") for item in baseline.get("benign_domain_suffixes", []) if str(item).strip())
+    for profile in profiles:
+        corroborated = any(item.disposition == "corroborated" for item in profile.findings)
+        for conn in profile.network_connections:
+            remote = text(conn.remote_addr)
+            if is_public_ip(remote):
+                _add_ioc(result, IOC("ip", remote, "network", profile.name, profile.pid, "medium" if corroborated else "low", "Public remote endpoint recovered from netscan.", profile.process_key, "actionable" if corroborated else "candidate"))
+        for value in URL.findall(profile.command_line):
+            _add_ioc(result, IOC("url", value.rstrip(".,;)]}"), "cmdline", profile.name, profile.pid, "medium", "URL recovered from command line.", profile.process_key, "candidate"))
+        for value in DOMAIN.findall(profile.command_line):
+            normalized = value.casefold().rstrip(".")
+            if normalized in {"microsoft.net", "system.core", "system.xml"} or any(normalized == suffix or normalized.endswith("." + suffix) for suffix in benign_suffixes):
+                continue
+            _add_ioc(result, IOC("domain", normalized, "cmdline", profile.name, profile.pid, "low", "Domain-shaped value recovered from command line.", profile.process_key, "candidate"))
+    return list(result.values())
+
+
+def _add_ioc(items: dict[tuple[str, str], IOC], candidate: IOC) -> None:
+    key = (candidate.type, candidate.value.casefold())
+    if key in items:
+        items[key].occurrence_count += 1
+        if candidate.actionability == "actionable":
+            items[key].actionability = "actionable"
+        return
+    items[key] = candidate
+
+
+def _timeline(profiles: list[ProcessProfile], findings: list[Finding], parsed: dict[str, list[Any]] | None = None) -> list[TimelineEvent]:
+    events: list[TimelineEvent] = []
+    for profile in profiles:
+        if profile.create_time:
+            events.append(TimelineEvent(profile.create_time, "process_start", profile.pid, profile.name, profile.command_line or profile.image_path, "process correlation", profile.process_key))
+        if profile.exit_time:
+            events.append(TimelineEvent(profile.exit_time, "process_exit", profile.pid, profile.name, "Exit time recovered from process artifact.", "process correlation", profile.process_key))
+        for conn in profile.network_connections:
+            events.append(TimelineEvent("", "network", profile.pid, profile.name, f"{conn.protocol} {conn.remote_addr}:{conn.remote_port} {conn.state}", conn.source_plugin, profile.process_key))
+    for row in (parsed or {}).get("timeliner", []):
+        events.append(TimelineEvent(text(row.get("timestamp")), text(row.get("event_type")) or "timeliner", row.get("pid"), text(row.get("process_name")), text(row.get("description") or row.get("details")), "timeliner", text(row.get("process_key"))))
+    for row in (parsed or {}).get("scheduled_tasks", []):
+        timestamp = text(row.get("last_run_time") or row.get("next_run_time"))
+        detail = " ".join(text(row.get(key)) for key in ("task_name", "action", "arguments") if text(row.get(key)))
+        events.append(TimelineEvent(timestamp, "scheduled_task", row.get("pid"), text(row.get("process_name")), detail, "windows.registry.scheduled_tasks", text(row.get("process_key"))))
+    for finding in findings:
+        if finding.disposition != "observed":
+            events.append(TimelineEvent("", "finding", finding.pid, finding.process_name, finding.title, finding.evidence[0].get("source", "RAMScope") if finding.evidence else "RAMScope", finding.process_key))
+    return _dedupe_timeline(events)
+
+
+def _dedupe_timeline(events: list[TimelineEvent]) -> list[TimelineEvent]:
+    unique: dict[tuple[Any, ...], TimelineEvent] = {}
+    for event in events:
+        key = (event.timestamp, event.event_type, event.pid, event.process_name, event.detail, event.source)
+        unique.setdefault(key, event)
+    return sorted(unique.values(), key=lambda item: (not bool(item.timestamp), item.timestamp, item.event_type, item.pid or -1))
+
+
+def _persist(case_dir: Path, profiles: list[ProcessProfile], findings: list[Finding], iocs: list[IOC], timeline: list[TimelineEvent], target: TargetInfo, unresolved: list[dict[str, Any]], observed: list[dict[str, Any]]) -> None:
+    normalized = case_dir / "normalized"
+    write_json(normalized / "process_profiles.json", profiles)
+    write_json(normalized / "findings.json", findings)
+    write_json(normalized / "risk_summary.json", {"findings": findings, "corroborated": sum(item.disposition == "corroborated" for item in findings), "leads": sum(item.disposition == "lead" for item in findings)})
+    write_json(normalized / "timeline.json", timeline)
+    write_json(normalized / "undated_events.json", [item for item in timeline if not item.timestamp])
+    write_json(normalized / "target_info.json", target)
+    write_json(normalized / "unresolved_artifacts.json", unresolved)
+    write_json(normalized / "observed_artifacts.json", observed)
+    write_json(case_dir / "iocs" / "iocs.json", iocs)
+    write_json(case_dir / "iocs" / "candidate_iocs.json", [item for item in iocs if item.actionability == "candidate"])
+    write_json(case_dir / "iocs" / "actionable_iocs.json", [item for item in iocs if item.actionability == "actionable"])
+
+
+def _user_writable_tokens(baseline: dict[str, Any]) -> tuple[str, ...]:
+    configured = baseline.get("user_writable_tokens", DEFAULT_USER_WRITABLE)
+    values = configured if isinstance(configured, (list, tuple)) else DEFAULT_USER_WRITABLE
+    return tuple(canonical_windows_path(value) if not str(value).startswith("\\") else str(value).casefold() for value in values)
+
+
+def _suspicious_powershell(command: str) -> bool:
+    lowered = command.casefold()
+    return any(token in lowered for token in (" -enc", "-encodedcommand", "frombase64string", "invoke-expression", " iex", "iex "))
+
+
+def _is_negative_signal(value: str) -> bool:
+    lowered = value.casefold().strip()
+    if not lowered:
+        return True
+    if lowered in {"false", "0", "none", "disabled", "n/a", "no"}:
+        return True
+    if any(token in lowered for token in NEGATIVE_SIGNAL_TOKENS):
+        return True
+    boolean_values = re.findall(r"(?:^|\s)[a-z0-9_.-]+=(true|false|yes|no|1|0)(?=\s|$)", lowered)
+    return bool(boolean_values) and all(item in {"false", "no", "0"} for item in boolean_values)
+
+
+def _vad_provenance(profile: ProcessProfile, start: str, end: str) -> str:
+    return f"vad:{profile.process_key}:{start}:{end}"
+
+
+def _extract_dump_hash(detail: str) -> str:
+    match = re.search(r"dump_sha256=([a-f0-9]{64})", detail, re.IGNORECASE)
+    return match.group(1).casefold() if match else ""
+
+
+def _hash_from_external_detail(detail: str, status: list[dict[str, Any]]) -> str:
+    name_match = re.search(r"(?:for|in)\s+([^;]+?)(?:;|$)", detail)
+    if not name_match:
+        return ""
+    target_name = Path(name_match.group(1).strip()).name
+    for row in status:
+        file_value = text(row.get("file"))
+        if file_value and Path(file_value).name == target_name:
+            path = Path(file_value)
+            if path.is_file():
+                import hashlib
+
+                digest = hashlib.sha256()
+                with path.open("rb") as file_obj:
+                    for chunk in iter(lambda: file_obj.read(1024 * 1024), b""):
+                        digest.update(chunk)
+                return digest.hexdigest()
+    return ""

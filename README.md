@@ -101,4 +101,3 @@ See `docs/installation.md`, `docs/usage.md`, `docs/architecture.md`, `docs/risk-
 ## Forensic limitations
 
 RAMScope is a triage and correlation tool, not a replacement for Volatility3 or analyst validation. Clean-image and known-positive acceptance testing should be repeated whenever Volatility, Windows builds, YARA rules, scoring logic, or external-tool versions change.
-
