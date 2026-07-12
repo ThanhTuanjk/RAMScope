@@ -294,6 +294,7 @@ def report(case: Annotated[Path, typer.Option("--case")], format: Annotated[str,
     analysis_cfg = _mapping(cfg.get("analysis", {})) if cfg else {}
     _validate_report_configuration(normalized_format, analysis_cfg)
     try:
+        _verify_normalized_manifest(case_dir)
         outputs = ReportGenerator().generate_from_case(case_dir, normalized_format, enable_pdf=bool(analysis_cfg.get("enable_pdf_report", False)))
     except (OSError, TypeError, ValueError) as exc:
         raise typer.BadParameter(f"Could not render report from normalized case data: {exc}") from exc
@@ -315,6 +316,7 @@ def _execute_plan(
     previous = {item.plugin: item for item in [_status(row) for row in _row_list(_read(case_dir / "normalized" / "plugin_status.json", []))]} if resume else {}
     available = runner.available_plugins() if runner.is_available() else set()
     raw_dir = case_dir / "raw" / "volatility"
+    attempts_dir = raw_dir / "attempts"
     timeouts = _mapping(_mapping(cfg.get("execution", {})).get("timeouts", {}))
 
     def one(plugin: str) -> PluginStatus:
@@ -332,10 +334,13 @@ def _execute_plan(
         current_lane = lane(plugin)
         timeout = int(timeouts.get(plugin, timeouts.get("heavy" if current_lane == "heavy" else "standard", 600)))
         dump = include_dumps and plugin in {"windows.dumpfiles", "windows.dlllist", "windows.memmap"}
+        attempt_stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
+        attempt_dir = attempts_dir / attempt_stamp / plugin.replace("/", "_")
+        attempt_dir.mkdir(parents=True, exist_ok=True)
         run = runner.run_plugin(
             input_file,
             plugin,
-            raw_dir,
+            attempt_dir,
             plugin_args=args,
             dump=dump,
             dump_args=plugin_dump_args_for(cfg, plugin) if dump else None,
@@ -343,12 +348,19 @@ def _execute_plan(
             resolved_plugin=resolved,
             timeout_seconds=timeout,
         )
+        if run.output_path and run.output_path.is_file():
+            shutil.copy2(run.output_path, raw)
+        if run.error_path and run.error_path.is_file():
+            error_target = raw_dir / "errors" / f"{plugin}.stderr.txt"
+            error_target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(run.error_path, error_target)
+        write_json(attempt_dir / "attempt.json", {"plugin": plugin, "started_at": run.started_at, "finished_at": run.finished_at, "command": run.command, "input_sha256": _sha256(input_file), "output_sha256": _sha256(raw) if raw.is_file() else "", "return_code": run.return_code, "timed_out": run.timed_out, "selected_as_current": bool(run.succeeded)})
         return PluginStatus(
             plugin=plugin,
             status="success" if run.succeeded else ("timeout" if run.timed_out else "failed"),
             return_code=run.return_code,
-            output_path=str(run.output_path or ""),
-            error_path=str(run.error_path or ""),
+            output_path=str(raw if raw.is_file() else ""),
+            error_path=str((raw_dir / "errors" / f"{plugin}.stderr.txt") if run.error_path and run.error_path.is_file() else ""),
             dump_files=[str(path) for path in run.dump_files],
             resolved_plugin=resolved,
             reason="" if run.succeeded else "Inspect saved error output.",
@@ -524,6 +536,23 @@ def _verify_case_artifacts(case_dir: Path, statuses: list[PluginStatus], metadat
     return {"verified_raw_outputs": verified_raw, "verified_dump_files": verified_dumps, "source_evidence_verified": evidence_verified, "hash_algorithm": "sha256"}
 
 
+def _verify_normalized_manifest(case_dir: Path) -> None:
+    manifest_path = case_dir / "normalized" / "normalized_manifest.json"
+    if not manifest_path.is_file():
+        return
+    manifest = _mapping(_read(manifest_path, {}))
+    rows = manifest.get("files", [])
+    root = case_dir.resolve()
+    for row in rows if isinstance(rows, list) else []:
+        if not isinstance(row, dict):
+            continue
+        candidate = (root / str(row.get("path", ""))).resolve()
+        if root not in candidate.parents or not candidate.is_file():
+            raise ValueError(f"normalized manifest path is missing or outside case: {row.get('path')}")
+        if _sha256(candidate) != str(row.get("sha256", "")):
+            raise ValueError(f"normalized manifest hash mismatch: {candidate.name}")
+
+
 def _runtime_plugin_args(cfg: dict[str, Any], plugin: str, yara_source: Path | list[Path] | None) -> list[str]:
     args = plugin_args_for(cfg, plugin)
     if plugin == "windows.vadyarascan" and not any(item.startswith("--yara-") for item in args):
@@ -649,7 +678,10 @@ def _manifest_rule_paths(case_dir: Path, manifest_value: Any) -> list[Path]:
         for row in files:
             if not isinstance(row, dict):
                 continue
-            path = case_dir / str(row.get("snapshot_path", ""))
+            path = (case_dir / str(row.get("snapshot_path", ""))).resolve()
+            root = (case_dir / "evidence" / "yara_rules").resolve()
+            if root not in path.parents:
+                raise ValueError("YARA manifest path escapes the case evidence/yara_rules directory")
             if path.is_file():
                 result.append(path)
     return result

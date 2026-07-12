@@ -6,6 +6,9 @@ import math
 import re
 import shutil
 import subprocess
+import os
+import signal
+import time
 from pathlib import Path
 from typing import Any
 
@@ -150,12 +153,17 @@ class ExternalToolAnalyzer:
         stderr_path = output_path.with_suffix(output_path.suffix + ".stderr.tmp")
         try:
             with output_path.open("w", encoding="utf-8", errors="replace") as stdout_file, stderr_path.open("w", encoding="utf-8", errors="replace") as stderr_file:
-                process = subprocess.Popen(command, stdout=stdout_file, stderr=stderr_file, text=True)
-                try:
-                    return_code = process.wait(timeout=self.timeout_seconds)
-                except subprocess.TimeoutExpired:
-                    process.kill()
-                    process.wait()
+                process = subprocess.Popen(command, stdout=stdout_file, stderr=stderr_file, text=True, creationflags=getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0), start_new_session=(os.name != "nt"))
+                deadline = time.monotonic() + self.timeout_seconds
+                timed_out = False
+                while process.poll() is None:
+                    if output_path.stat().st_size + stderr_path.stat().st_size > self.max_output_bytes or time.monotonic() >= deadline:
+                        timed_out = True
+                        _terminate_process_tree(process)
+                        break
+                    time.sleep(0.1)
+                return_code = process.wait()
+                if timed_out:
                     stdout = _read_bounded(output_path, self.max_output_bytes)
                     stderr = _read_bounded(stderr_path, self.max_output_bytes)
                     stderr_path.unlink(missing_ok=True)
@@ -314,6 +322,16 @@ def _status(return_code: int, timed_out: bool) -> str:
     if return_code == 1:
         return "signal_or_partial"
     return "failed"
+
+
+def _terminate_process_tree(process: subprocess.Popen[Any]) -> None:
+    if os.name == "nt":
+        subprocess.run(["taskkill", "/PID", str(process.pid), "/T", "/F"], capture_output=True, check=False)
+        return
+    try:
+        getattr(os, "killpg")(process.pid, getattr(signal, "SIGKILL", 9))
+    except (OSError, ProcessLookupError):
+        process.kill()
 
 
 def _find_die() -> str | None:

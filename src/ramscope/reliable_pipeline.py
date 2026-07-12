@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import re
+import hashlib
+import importlib.metadata
+import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -20,6 +23,7 @@ from ramscope.parsers.registry_parser import RegistryParser
 from ramscope.parsers.service_parser import ServiceParser
 from ramscope.utils.forensic import boolish, canonical_windows_path, is_absolute_windows_path, is_public_ip, is_security_or_jit_process, is_system_path, optional, text
 from ramscope.utils.json_utils import write_json
+from ramscope.scoring.rules import severity_for_score
 
 
 SYSTEM_NAMES = {"smss.exe", "csrss.exe", "wininit.exe", "services.exe", "lsass.exe", "winlogon.exe", "svchost.exe"}
@@ -601,7 +605,7 @@ def _attach_and_score(profiles: list[ProcessProfile], findings: list[Finding], c
                 group_provenance.setdefault(group, set()).update(provenances)
         groups = set(group_provenance)
         independent = set().union(*group_provenance.values()) if group_provenance else set()
-        has_strong = bool(groups.intersection({"memory", "signature", "thread"}))
+        has_strong = bool(groups.intersection({"memory", "signature", "thread", "kernel", "hook", "evasion", "lsass"}))
         severity = ""
         if len(groups) >= 3 and len(independent) >= 3 and has_strong and groups.intersection({"network", "persistence"}):
             severity = "Critical"
@@ -646,7 +650,7 @@ def _attach_and_score(profiles: list[ProcessProfile], findings: list[Finding], c
             weighted = round(item.score * float(weights.get(item.category, 1.0)))
             category_totals[item.category] = min(category_caps.get(item.category, 20), category_totals.get(item.category, 0) + weighted)
         profile.risk_score = min(int((cfg or {}).get("risk_total_score_cap", 100)), sum(category_totals.values()))
-        profile.severity = "Critical" if any(item.severity == "Critical" for item in profile.findings) else ("High" if any(item.severity == "High" for item in profile.findings) else ("Medium" if any(item.severity == "Medium" for item in profile.findings) else ("Low" if profile.findings else "Info")))
+        profile.severity = severity_for_score(profile.risk_score) if profile.findings else "Info"
         profile.score_reasons = [f"{item.severity}: {item.title}" for item in profile.findings]
     findings.extend(correlation_findings)
     findings[:] = _dedupe_findings(findings)
@@ -740,6 +744,25 @@ def _persist(case_dir: Path, profiles: list[ProcessProfile], findings: list[Find
     write_json(case_dir / "iocs" / "iocs.json", iocs)
     write_json(case_dir / "iocs" / "candidate_iocs.json", [item for item in iocs if item.actionability == "candidate"])
     write_json(case_dir / "iocs" / "actionable_iocs.json", [item for item in iocs if item.actionability == "actionable"])
+    _write_normalized_manifest(case_dir)
+
+
+def _write_normalized_manifest(case_dir: Path) -> None:
+    root = case_dir.resolve()
+    entries: list[dict[str, str]] = []
+    for path in sorted((root / "normalized").rglob("*")):
+        if not path.is_file() or path.name == "normalized_manifest.json":
+            continue
+        entries.append({"path": str(path.relative_to(root)).replace("\\", "/"), "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
+    try:
+        version = importlib.metadata.version("ramscope")
+    except importlib.metadata.PackageNotFoundError:
+        version = "source"
+    try:
+        commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True, check=False, timeout=3).stdout.strip() or "unknown"
+    except (OSError, subprocess.SubprocessError):
+        commit = "unknown"
+    write_json(root / "normalized" / "normalized_manifest.json", {"schema_version": 1, "engine_version": version, "git_commit": commit, "files": entries})
 
 
 def _user_writable_tokens(baseline: dict[str, Any]) -> tuple[str, ...]:

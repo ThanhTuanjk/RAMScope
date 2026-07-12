@@ -8,6 +8,7 @@ from typing import Any
 UNKNOWN_TEXT = {"", "-", "n/a", "na", "none", "null", "unknown", "unreadable", "notavailable", "not applicable", "notapplicable", "<none>", "<not recovered>", "disabled"}
 DEVICE_VOLUME = re.compile(r"^\\device\\harddiskvolume\d+", re.IGNORECASE)
 DRIVE_PATH = re.compile(r"^[a-z]:\\", re.IGNORECASE)
+ROOT_ALIAS = re.compile(r"^(?:%systemroot%|\\systemroot)(?=\\|$)", re.IGNORECASE)
 
 
 def optional(value: Any) -> Any:
@@ -39,6 +40,14 @@ def boolish(value: Any) -> bool | None:
 def canonical_windows_path(value: Any) -> str:
     candidate = text(value).strip().strip('"').replace("/", "\\")
     candidate = re.sub(r"\\+", r"\\", candidate).casefold()
+    candidate = re.sub(r"^\\\\\?\\unc\\", "\\\\", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(r"^\\\\\?\\", "", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(r"^\\\?\\\?\\", "", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(r"^\\\?\\", "", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(r"^\\\\\.\\", "", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(r"^%systemroot%", r"c:\\windows", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(r"^\\systemroot", r"c:\\windows", candidate, flags=re.IGNORECASE)
+    candidate = re.sub(r"^\\device\\mup", r"\\\\", candidate, flags=re.IGNORECASE)
     candidate = DEVICE_VOLUME.sub("", candidate)
     candidate = re.sub(r"^[a-z]:", "", candidate)
     return candidate.strip("\\")
@@ -46,7 +55,7 @@ def canonical_windows_path(value: Any) -> str:
 
 def is_absolute_windows_path(value: Any) -> bool:
     candidate = text(value)
-    return bool(DRIVE_PATH.match(candidate) or DEVICE_VOLUME.match(candidate) or candidate.startswith("\\\\"))
+    return bool(DRIVE_PATH.match(candidate) or DEVICE_VOLUME.match(candidate) or ROOT_ALIAS.match(candidate) or candidate.startswith("\\\\") or candidate.startswith("\\??\\") or candidate.startswith("\\\\?\\"))
 
 
 def same_windows_path(left: Any, right: Any) -> bool:
