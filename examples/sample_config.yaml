@@ -1,0 +1,17 @@
+volatility:
+  command: "vol"
+  renderer: "json"
+  quiet: true
+  timeout_seconds: 600
+
+# These are stable RAMScope logical names. At ru…95021 tokens truncated…xpected = hashlib.sha256(raw.read_bytes()).hexdigest()
+    dump = tmp_path / "pid.4.dmp"
+    dump.write_bytes(b"dump")
+    dump_hash = hashlib.sha256(dump.read_bytes()).hexdigest()
+    status = PluginStatus("windows.pslist", "success", stdout_sha256=expected, dump_hashes={str(dump): dump_hash})
+    assert _cache_output_valid(status, raw)
+    dump.write_bytes(b"tampered dump")
+    assert not _cache_output_valid(status, raw)
+    dump.write_bytes(b"dump")
+    raw.write_text("tampered", encoding="utf-8")
+    assert not _cache_output_valid(status, raw)
