@@ -21,7 +21,7 @@ from ramscope.community_sources import COMMUNITY_SOURCES
 from ramscope.config import enabled_plugins, load_config, plugin_args_for, plugin_dump_args_for
 from ramscope.execution import lane, run_jobs, workers
 from ramscope.models import Finding, PluginStatus, to_jsonable
-from ramscope.reliable_pipeline import analyze_case, candidate_pids
+from ramscope.reliable_pipeline import analyze_case, candidate_pids, refresh_normalized_manifest
 from ramscope.reporting.reliable_report import VALID_FORMATS, write_reports
 from ramscope.reporting.report_generator import ReportGenerator
 from ramscope.utils.json_utils import read_json, write_json
@@ -199,8 +199,10 @@ def analyze(
         include_dumps,
     )
     write_json(case_dir / "normalized" / "plugin_status.json", statuses)
+    refresh_normalized_manifest(case_dir)
     result = analyze_case(case_dir, statuses, cfg, target_profile=target_profile, yara_rules=snapshot_rules, compiled_yara_path=compiled, external_tools=external_tools)
     write_json(case_dir / "normalized" / "plugin_status.json", statuses)
+    refresh_normalized_manifest(case_dir)
 
     if runner.is_available() and selected_dump_mode != "none" and "windows.malfind" in planned:
         targets = candidate_pids(result, int(execution.get("malfind", {}).get("max_targets", 12)), list(malfind_pid or []))
@@ -210,8 +212,10 @@ def analyze(
         if extra:
             statuses.extend(extra)
             write_json(case_dir / "normalized" / "plugin_status.json", statuses)
+            refresh_normalized_manifest(case_dir)
             result = analyze_case(case_dir, statuses, cfg, target_profile=target_profile, yara_rules=snapshot_rules, compiled_yara_path=compiled, external_tools=external_tools)
             write_json(case_dir / "normalized" / "plugin_status.json", statuses)
+            refresh_normalized_manifest(case_dir)
 
     metadata = manager.finish_case(case_dir, metadata)
     outputs = write_reports(case_dir, to_jsonable(metadata), result.profiles, result.findings, result.iocs, statuses, result.target, result.unresolved, normalized_format, bool(analysis_cfg.get("enable_pdf_report", False)))
@@ -266,6 +270,7 @@ def reassess(
     current_tool_manifest = _collect_tool_manifest(str(_mapping(cfg.get("volatility", {})).get("command", "vol")), _runner_from_config(cfg), external_tools)
     result = analyze_case(destination, statuses, cfg, target_profile=selected_target, yara_rules=snapshot_rules, compiled_yara_path=compiled, external_tools=external_tools)
     write_json(destination / "normalized" / "plugin_status.json", statuses)
+    refresh_normalized_manifest(destination)
     outputs = write_reports(destination, metadata, result.profiles, result.findings, result.iocs, statuses, result.target, result.unresolved, normalized_format, bool(_mapping(cfg.get("analysis", {})).get("enable_pdf_report", False)))
     write_json(
         destination / "reassessment_manifest.json",

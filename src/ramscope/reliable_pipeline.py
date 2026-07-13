@@ -765,6 +765,11 @@ def _write_normalized_manifest(case_dir: Path) -> None:
     write_json(root / "normalized" / "normalized_manifest.json", {"schema_version": 1, "engine_version": version, "git_commit": commit, "files": entries})
 
 
+def refresh_normalized_manifest(case_dir: Path) -> None:
+    """Refresh the normalized ledger after the final plugin-status write."""
+    _write_normalized_manifest(case_dir)
+
+
 def _user_writable_tokens(baseline: dict[str, Any]) -> tuple[str, ...]:
     configured = baseline.get("user_writable_tokens", DEFAULT_USER_WRITABLE)
     values = configured if isinstance(configured, (list, tuple)) else DEFAULT_USER_WRITABLE
